@@ -1,0 +1,27 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+  # Run tests for any PRs.
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build PDF
+        run: |
+          docker pull dxjoke/tectonic-docker
+          docker run --mount src=./,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic curriculum.tex"
+
+      - name: Generate artifact for PDF
+        uses: actions/upload-artifact@v2
+        with:
+          name: curriculum.pdf
+          path: curriculum.pdf
