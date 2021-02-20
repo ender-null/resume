@@ -9,7 +9,7 @@ on:
   pull_request:
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +18,7 @@ jobs:
       - name: Build PDF
         run: |
           docker pull dxjoke/tectonic-docker
-          docker run --mount src=./,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic curriculum.tex"
+          docker run --mount src=/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic curriculum.tex"
 
       - name: Generate artifact for PDF
         uses: actions/upload-artifact@v2
