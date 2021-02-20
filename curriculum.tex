@@ -1,104 +1,61 @@
-\documentclass{resume}
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{green}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.77]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Ingrid}{Vaz Martins}
+\title{28 years, Brazilian}                               % optional, remove / comment the line if not wanted
+\address{Flat 2b, 34 Blessington Street Dublin 7}{D07YF57 Dublin}{Ireland}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\phone[mobile]{+353~(083)~429~5775}                   % optional, , remove / comment the line if not wanted
+\email{ingridvazmartins@gmail.com}                               %  remove / comment the line if not wanted
 
 \begin{document}
+\makecvtitle
+\section{Education}
+\cventry{2010--2015}{Bachelor}{College Pitagoras}{Betim - Brazil}{\textit{Computer Science}}{} 
 
-\fontfamily{ppl}\selectfont
+\section{Experience}
+\cventry{2017--2018}{Junior Developer}{Ats Informatica}{Nova Lima}{}{
+I worked on bug fixes for so-called SLAs and
+doing refactoring in the ERP system, aimed at the wholesale and retail market, in which the technologies used are: Java, TortoiseSVN, Postgres, MVC, interface framework is JSF.
+I participated in the communication of the company's ERP system with Magento.
+}
+\cventry{2017--2017}{Junior Developer}{Data Solution}{Belo Horizonte}{}{I worked on bug fixes and
+doing refactoring in the ERP system, aimed at dental operators developed by the company, in which the technologies used are: Java, TortoiseSVN, SQL Server, MVC, interface framework is JSF.
+}
+\cventry{2015--2017}{Trainee Developer}{Memory}{Belo Horizonte}{}{I have done refactoring in the public sector ERP system developed by the company in which the C ++ programming language and the IDE C ++ Builder 6 are used, making bug fixes when necessary. I participated in the development of software to manage backups of the company's customer databases, it was developed in the Java language using the Eclipse IDE and the TortoiseSVN, along with the FireBird. Performing the creation and maintenance of an internal knowledge management in the Moodle tool.}
 
-\noindent
-\begin{tabularx}{\linewidth}{@{}m{0.8\textwidth} m{0.2\textwidth}@{}}
-{
-    \Large{John Doe} \newline
-    \small{
-        \clink{
-            \href{mailto:johndoe@mailme.com}{johndoe@mailme.com} \textbf{·} 
-            {\fontdimen2\font=0.75ex +1 2345 6789} 
-            \textbf{·} 
-            \href{https://johnmyweb.com}{johnmyweb.com}
-        } \newline
-        New York, USA
-    }
-} & 
-{
-    \hfill
-    \includegraphics[width=2.8cm]{images/gr.png}
-}
-\end{tabularx}
-\begin{center}
-\begin{tabularx}{\linewidth}{@{}*{2}{X}@{}}
-% left side %
-{
-    \csection{EXPERIENCE}{\small
-        \begin{itemize}
-            % item 1 %
-            \item \frcontent{Dream Company}{Senior Software Engineer - San Fransisco, CA}{Co-designer and co-implementor of five successive generations of Google’s crawling indexing and query retrieval systems.}{August 1999 onwards}
-            % item 2 %
-            \item \frcontent{Old Dream Company}{Senior Member of Technical Staff − Texas}{Designer and implementor of a system for retrieving and caching electronic commerce content including a crawler and custom full-text indexing system that allows flexible keyword searching of product information.}{February 1999 to August 1999}
-        \end{itemize}
-    }
-    \csection{EDUCATION}{\small
-        \begin{itemize}
-            % item 1 %
-            \item \frcontent{Ph.D. Computer Science}{University of Washington}{}{1996}
-            \item \frcontent{B.S. Computer Engineering, CGPA: 3.6/4}{University of Minnesota}{}{1990}
-        \end{itemize}
-    }
-    \csection{AWARDS \& RECOGNITION}{\small
-        \begin{itemize}
-            % item 1 %
-            \item \frcontent{Fake Academy Fellow}{Fake Academy of Arts and Sciences}{}{2016}
-            % item 2 %
-            \item \frcontent{Elon Musk Award}{State of Engineering}{}{2012}
-            % item 3 %
-            \item \frcontent{ACM Fellow}{Association for Computing Machinery}{}{2009}
-        \end{itemize}
-    }
-} 
-% end left side %
-& 
-% right side %
-{
-    \csection{SKILLS}{\small
-        \begin{itemize}
-            \item \textbf{Technologies} \newline
-            {\footnotesize Golang, Python, C++, Tensorflow, Spanner, Bigtable, MapReduce, Google Cloud Platform,  Protocol Buffers}{}{}
-            \item \textbf{Patterns \& Practices} \newline
-            {\footnotesize Object Oriented Programming, Functional  Programming, CI \& CD, Microservices}
-            \item \textbf{Project Management} \newline
-            {\footnotesize Agile, Scrum, Google Bug Tracker, Google Workspace}
-        \end{itemize}
-    }
-    \csection{PROJECTS}{\small
-        \begin{itemize}
-            \item \frcontent{Tensorflow \clink{\href{https://tensorflow.org}{[tensorflow.org]}}}{An open-source machine-learning software library}{}{C++, Python, Bash}
-            \item \frcontent{LevelDB \clink{\href{http://github.com/google/leveldb}{[github.com/google/leveldb]}}}{An open-source on-disk key-value store}{}{C++}
-            \item \frcontent{Spanner \clink{\href{http://google.com/spanner}{[google.com/spanner]}}}{A scalable, multi-version, globally distributed, and synchronously replicated database}{}{C++, Java, Bash}
-        \end{itemize}
-    }
-    \csection{OTHER HIGHLIGHTS}{\small
-        \begin{itemize}
-            \item {\footnotesize Gave talk on \textit{Achieving Rapid Response Times in Large Online Services} at Berkeley AMPLab Cloud.}
-            \item {\footnotesize Led several teams across infrastructure, founded \textit{Google Brain} and was involved in hiring process.}
-        \end{itemize}
-    }
-    \csection{HOBBIES \& INTERESTS}{\small
-        \vspace{0.32cm}
-        \begin{tabularx}{\linewidth}{@{}*{4}{>{\centering\arraybackslash}X}@{}}
-            {\centering
-            \includegraphics[width=0.8cm]{images/userexperience.png}
-            } &
-            {\centering
-            \includegraphics[width=0.8cm]{images/lamp.png}
-            } & 
-            {\centering
-            \includegraphics[width=0.8cm]{images/healthcare.png}
-            } &
-            {\centering
-            \includegraphics[width=0.8cm]{images/cauldron.png}
-            } \\
-            {\footnotesize UI/UX} & {\footnotesize Problem Solving} & {\footnotesize Healthcare} & {\footnotesize Open Source}
-        \end{tabularx}
-    }
-}
-\end{tabularx}
-\end{center}
+\section{Languages}
+\cvitemwithcomment{Portuguese}{Native}{}
+\cvitemwithcomment{English}{Intermediate}{OHC school - Dublin}
+\section{Knowledge Area}
+\cvitem{Frontend}{AngularJS, Angular,Primefaces}
+\cvitem{Backend}{Java,Hibernate,Relatórios Ireport,Java Server Faces, MVC, Maven, Spring MVC}
+\cvitem{Database}{MySQL, SQL Server and Postgrees }
+\cvitem{Outros}{TortoiseSVN, Git, Jenkins,  agile methodologies( SCRUM)}
+\section{About me}
+\cvitem{}{I have a lot of determination in my goals and among them are acquiring greater professional knowledge, learning from a team of professionals and being able to pass on that knowledge acquired further when necessary.
+I would like to work in the software development industry, despite the short period of experience in the development sector, I have a lot of interest in this area and a lot of willingness to learn new things.}
+\clearpage
 \end{document}
