@@ -22,5 +22,5 @@ jobs:
       - name: Generate artifact for PDF
         uses: actions/upload-artifact@v2
         with:
-          name: curriculum.pdf
+          name: Alin_Sorin_Nedelcu_CV.pdf
           path: curriculum.pdf
