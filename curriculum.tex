@@ -2,40 +2,42 @@
 % conditions of the LaTeX Project Public License version 1.3c,
 % available at http://www.latex-project.org/lppl/.
 
-
-\documentclass[11pt,a4paper,sans]{moderncv}         % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\usepackage{fontawesome}
+\documentclass[11pt,a4paper,sans]{moderncv}
 
 % moderncv themes
-\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
-\moderncvcolor{purple}                              % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
-%\renewcommand{\familydefault}{\sfdefault}          % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-%\nopagenumbers{}                                   % uncomment to suppress automatic page numbering for CVs longer than one page
+\moderncvstyle{casual}
+\moderncvcolor{purple}
+%\renewcommand{\familydefault}{\sfdefault}
+%\nopagenumbers{}
 
 % character encoding
-\usepackage[utf8]{inputenc}                         % if you are not using xelatex ou lualatex, replace by the encoding you are using
-%\usepackage{CJKutf8}                               % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+\usepackage[utf8]{inputenc}
 
 % adjust the page margins
 \usepackage[scale=0.77]{geometry}
-%\setlength{\hintscolumnwidth}{3cm}                 % if you want to change the width of the column with the dates
-%\setlength{\makecvtitlenamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+\setlength{\hintscolumnwidth}{3cm}
+%\setlength{\makecvtitlenamewidth}{10cm}
 
 % personal data
-\name{Alin Sorin}{Nedelcu}
-\title{Front-end Developer}                               % optional, remove / comment the line if not wanted
-\address{Zaragoza, Spain}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
-\phone[mobile]{+34 653 751 742}                   % optional, , remove / comment the line if not wanted
-\email{asnedelcu@icloud.com}                               %  remove / comment the line if not wanted
+\firstname{Alin Sorin}
+\familyname{Nedelcu}
+\title{Front-end Developer}
+\address{Zaragoza, Spain}{50011}
+\phone[mobile]{+34 653 751 742}
+\email{asnedelcu@icloud.com}
+\extrainfo{\weblink{https://github.com/luksireiku}{luksireiku}}
+\photo[64p]{photo.jpg}
 
 \begin{document}
 \makecvtitle
 
 \section{Experience}
-\cventry{Dec 2019--Feb 2021}{Junior Software Developer}{Eleven Paths}{Valencia, Spain}{}{Angular front-end development, Java back-end development, Git versioning control, Redmine, Scrum, JavaScript, TypeScript.}
-\cventry{Oct 2017--Dec 2019}{Software Developer}{Ingenia Sistemas Avanzados para el Transporte S.L.}{Garrapinillos, Zaragoza, Spain}{}{Angular front-end development, Apache Cordova multi-platform app development, Android development using Java, Git versioning control, Jenkins CI, TypeScript, JavaScript}
-\cventry{Mar 2017--Aug 2017}{Front-End Developer}{Rana Negra}{Zaragoza, Spain}{}{Symfony framework front-end development, Angular front-end development, Git versioning control, PHP, TypeScript, JavaScript}
-\cventry{Sep 2016--Dec 2016}{Internship Trainee}{Neodoo Microsystems}{Zaragoza, Spain}{}{Django front-end development, Git versioning control, PHP, Semantic UI}
-\cventry{Sep 2014--Apr 2015}{Internship Trainee}{Pernia Sistemas Informáticos S.L.}{Zaragoza, Spain}{}{PHP front-end development, Wordpress, Prestashop, HTML5}
+\cventry{Dec-2019--Feb-2021}{Junior Software Developer}{Eleven Paths}{Valencia, Spain}{}{Angular front-end development, Java back-end development, Git versioning control, Redmine, Scrum, JavaScript, TypeScript.}
+\cventry{Oct-2017--Dec-2019}{Software Developer}{Ingenia Sistemas Avanzados para el Transporte S.L.}{Garrapinillos, Zaragoza, Spain}{}{Angular front-end development, Apache Cordova multi-platform app development, Android development using Java, Git versioning control, Jenkins CI, TypeScript, JavaScript}
+\cventry{Mar-2017--Aug-2017}{Front-End Developer}{Rana Negra}{Zaragoza, Spain}{}{Symfony framework front-end development, Angular front-end development, Git versioning control, PHP, TypeScript, JavaScript}
+\cventry{Sep-2016--Dec-2016}{Internship Trainee}{Neodoo Microsystems}{Zaragoza, Spain}{}{Django front-end development, Git versioning control, PHP, Semantic UI}
+\cventry{Sep-2014--Apr-2015}{Internship Trainee}{Pernia Sistemas Informáticos S.L.}{Zaragoza, Spain}{}{PHP front-end development, Wordpress, Prestashop, HTML5}
 
 \section{Education}
 \cventry{2014--2016}{FP Grado Superior}{C.P.I.F.P. Los Enlaces}{Zaragoza, Spain}{\textit{Desarrollo de Aplicaciones Multiplataforma}}{} 
@@ -46,10 +48,10 @@
 \cvitemwithcomment{Romanian}{Native}{}
 \cvitemwithcomment{English}{Full Professional}{}
 \section{Knowledge Area}
-\cvitem{Frontend}{Angular, Symfony, Apache Cordova, JavaScript, TypeScript, PHP}
-\cvitem{Backend}{Java, Python}
-\cvitem{Database}{MySQL, Firebase}
-\cvitem{Outros}{Git, Jenkins, agile methodologies(SCRUM)}
+\cvitem{Frontend}{Angular, Symfony, Apache Cordova, SASS, JavaScript, TypeScript, PHP}
+\cvitem{Backend}{Node.js, Java, Python}
+\cvitem{Database}{MySQL, PostgreSQL, Firebase}
+\cvitem{Outros}{Git, Jenkins, Docker, agile methodologies (SCRUM), Bash, GNU/Linux}
 \section{About me}
 \cvitem{}{Soy una persona creativa e innovadora con ideas nuevas y atrevidas. Me gusta probar y aprender todo tipo de cosas y soy autodidacta.}
 \clearpage
