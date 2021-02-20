@@ -15,7 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build PDF from LaTeX
+      - name: Build PDF
+        run: |
           docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic curriculum.tex"
 
       - name: Generate artifact for PDF
