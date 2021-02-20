@@ -1,61 +1,56 @@
-%% start of file `template.tex'.
-%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
-%
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License version 1.3c,
 % available at http://www.latex-project.org/lppl/.
 
 
-\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[11pt,a4paper,sans]{moderncv}         % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % moderncv themes
 \moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
-\moderncvcolor{purple}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
-%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+\moderncvcolor{purple}                              % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}          % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                   % uncomment to suppress automatic page numbering for CVs longer than one page
 
 % character encoding
-\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
-%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+\usepackage[utf8]{inputenc}                         % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                               % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
 
 % adjust the page margins
 \usepackage[scale=0.77]{geometry}
-%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
-%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+%\setlength{\hintscolumnwidth}{3cm}                 % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
 % personal data
 \name{Alin Sorin}{Nedelcu}
-\title{Junior Developer}                               % optional, remove / comment the line if not wanted
-\address{Zaragoza}{Spain}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\title{Front-end Developer}                               % optional, remove / comment the line if not wanted
+\address{Zaragoza, Spain}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
 \phone[mobile]{+34 653 751 742}                   % optional, , remove / comment the line if not wanted
 \email{asnedelcu@icloud.com}                               %  remove / comment the line if not wanted
 
 \begin{document}
 \makecvtitle
-\section{Education}
-\cventry{2010--2015}{Bachelor}{College Pitagoras}{Betim - Brazil}{\textit{Computer Science}}{} 
 
 \section{Experience}
-\cventry{2017--2018}{Junior Developer}{Ats Informatica}{Nova Lima}{}{
-I worked on bug fixes for so-called SLAs and
-doing refactoring in the ERP system, aimed at the wholesale and retail market, in which the technologies used are: Java, TortoiseSVN, Postgres, MVC, interface framework is JSF.
-I participated in the communication of the company's ERP system with Magento.
-}
-\cventry{2017--2017}{Junior Developer}{Data Solution}{Belo Horizonte}{}{I worked on bug fixes and
-doing refactoring in the ERP system, aimed at dental operators developed by the company, in which the technologies used are: Java, TortoiseSVN, SQL Server, MVC, interface framework is JSF.
-}
-\cventry{2015--2017}{Trainee Developer}{Memory}{Belo Horizonte}{}{I have done refactoring in the public sector ERP system developed by the company in which the C ++ programming language and the IDE C ++ Builder 6 are used, making bug fixes when necessary. I participated in the development of software to manage backups of the company's customer databases, it was developed in the Java language using the Eclipse IDE and the TortoiseSVN, along with the FireBird. Performing the creation and maintenance of an internal knowledge management in the Moodle tool.}
+\cventry{Dec 2019--Feb 2021}{Junior Software Developer}{Eleven Paths}{Valencia, Spain}{}{Angular front-end development, Java back-end development, Git versioning control, Redmine, Scrum, JavaScript, TypeScript.}
+\cventry{Oct 2017--Dec 2019}{Software Developer}{Ingenia Sistemas Avanzados para el Transporte S.L.}{Garrapinillos, Zaragoza, Spain}{}{Angular front-end development, Apache Cordova multi-platform app development, Android development using Java, Git versioning control, Jenkins CI, TypeScript, JavaScript}
+\cventry{Mar 2017--Aug 2017}{Front-End Developer}{Rana Negra}{Zaragoza, Spain}{}{Symfony framework front-end development, Angular front-end development, Git versioning control, PHP, TypeScript, JavaScript}
+\cventry{Sep 2016--Dec 2016}{Internship Trainee}{Neodoo Microsystems}{Zaragoza, Spain}{}{Django front-end development, Git versioning control, PHP, Semantic UI}
+\cventry{Sep 2014--Apr 2015}{Internship Trainee}{Pernia Sistemas Informáticos S.L.}{Zaragoza, Spain}{}{PHP front-end development, Wordpress, Prestashop, HTML5}
+
+\section{Education}
+\cventry{2014--2016}{FP Grado Superior}{C.P.I.F.P. Los Enlaces}{Zaragoza, Spain}{\textit{Desarrollo de Aplicaciones Multiplataforma}}{} 
+\cventry{2012--2014}{FP Grado Medio}{C.P.I.F.P. Los Enlaces}{Zaragoza, Spain}{\textit{Grado Medio en Sistemas Microinformáticos y Redes}}{} 
 
 \section{Languages}
-\cvitemwithcomment{Portuguese}{Native}{}
-\cvitemwithcomment{English}{Intermediate}{OHC school - Dublin}
+\cvitemwithcomment{Spanish}{Native}{}
+\cvitemwithcomment{Romanian}{Native}{}
+\cvitemwithcomment{English}{Full Professional}{}
 \section{Knowledge Area}
-\cvitem{Frontend}{AngularJS, Angular,Primefaces}
-\cvitem{Backend}{Java,Hibernate,Relatórios Ireport,Java Server Faces, MVC, Maven, Spring MVC}
-\cvitem{Database}{MySQL, SQL Server and Postgrees }
-\cvitem{Outros}{TortoiseSVN, Git, Jenkins,  agile methodologies( SCRUM)}
+\cvitem{Frontend}{Angular, Symfony, Apache Cordova, JavaScript, TypeScript, PHP}
+\cvitem{Backend}{Java, Python}
+\cvitem{Database}{MySQL, Firebase}
+\cvitem{Outros}{Git, Jenkins, agile methodologies(SCRUM)}
 \section{About me}
-\cvitem{}{I have a lot of determination in my goals and among them are acquiring greater professional knowledge, learning from a team of professionals and being able to pass on that knowledge acquired further when necessary.
-I would like to work in the software development industry, despite the short period of experience in the development sector, I have a lot of interest in this area and a lot of willingness to learn new things.}
+\cvitem{}{Soy una persona creativa e innovadora con ideas nuevas y atrevidas. Me gusta probar y aprender todo tipo de cosas y soy autodidacta.}
 \clearpage
 \end{document}
