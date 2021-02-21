@@ -5,7 +5,6 @@ on:
     branches:
       - main
 
-  # Run tests for any PRs.
   pull_request:
 
 jobs:
@@ -19,8 +18,18 @@ jobs:
         run: |
           docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic Alin_Sorin_Nedelcu_CV.tex"
 
+      - name: Build spanish PDF
+        run: |
+          docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic Alin_Sorin_Nedelcu_CV-ES.tex"
+
       - name: Generate artifact for PDF
         uses: actions/upload-artifact@v2
         with:
           name: Alin_Sorin_Nedelcu_CV.pdf
           path: Alin_Sorin_Nedelcu_CV.pdf
+
+      - name: Generate artifact for spanish PDF
+        uses: actions/upload-artifact@v2
+        with:
+          name: Alin_Sorin_Nedelcu_CV-ES.pdf
+          path: Alin_Sorin_Nedelcu_CV-ES.pdf
