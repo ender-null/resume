@@ -1,4 +1,4 @@
-name: Build
+name: Compile (TeX Live)
 
 on:
   push:
