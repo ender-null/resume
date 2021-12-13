@@ -14,21 +14,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build PDF
+      - name: Build PDF (default)
         run: |
           docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic Alin_Sorin_Nedelcu_CV.tex"
 
-      - name: Build spanish PDF
+      - name: Build PDF (spanish)
         run: |
           docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic Alin_Sorin_Nedelcu_CV-ES.tex"
 
-      - name: Generate artifact for PDF
+      - name: Generate artifact for PDF (default)
         uses: actions/upload-artifact@v2
         with:
           name: Alin_Sorin_Nedelcu_CV.pdf
           path: Alin_Sorin_Nedelcu_CV.pdf
 
-      - name: Generate artifact for spanish PDF
+      - name: Generate artifact for PDF (spanish)
         uses: actions/upload-artifact@v2
         with:
           name: Alin_Sorin_Nedelcu_CV-ES.pdf
