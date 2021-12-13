@@ -16,7 +16,7 @@ jobs:
 
       - name: Build PDF
         run: |
-          docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "apk add ttf-font-awesome; cd /docs; latexmk -pdflua -f Alin_Sorin_Nedelcu_CV.tex; latexmk -pdflua -f Alin_Sorin_Nedelcu_CV-ES.tex"
+          docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "cd /docs; latexmk -pdflua -f Alin_Sorin_Nedelcu_CV.tex; latexmk -pdflua -f Alin_Sorin_Nedelcu_CV-ES.tex"
 
       - name: Upload pdf
         uses: actions/upload-artifact@v2
