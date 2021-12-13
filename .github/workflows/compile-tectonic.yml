@@ -17,15 +17,17 @@ jobs:
       - name: Build PDF
         run: |
           docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic resume.tex; tectonic resume-spanish.tex"
+          mv resume.pdf AlinSNedelcu_resume.pdf
+          mv resume-spanish.pdf AlinSNedelcu_curriculum.pdf
 
       - name: Generate artifact for PDF (default)
         uses: actions/upload-artifact@v2
         with:
           name: AlinSNedelcu_resume.pdf
-          path: resume.pdf
+          path: AlinSNedelcu_resume.pdf
 
       - name: Generate artifact for PDF (spanish)
         uses: actions/upload-artifact@v2
         with:
           name: AlinSNedelcu_curriculum.pdf
-          path: resume-spanish.pdf
+          path: AlinSNedelcu_curriculum.pdf

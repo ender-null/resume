@@ -17,26 +17,17 @@ jobs:
       - name: Build PDF
         run: |
           docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "cd /docs; latexmk -pdflua -f resume.tex; latexmk -pdflua -f resume-spanish.tex"
-
-      - name: Upload pdf
-        uses: actions/upload-artifact@v2
-        with:
-          name: template.pdf
-          path: ./template.pdf
-      - name: Upload log
-        uses: actions/upload-artifact@v2
-        with:
-          name: template.log
-          path: ./template.log
+          mv resume.pdf AlinSNedelcu_resume.pdf
+          mv resume-spanish.pdf AlinSNedelcu_curriculum.pdf
 
       - name: Generate artifact for PDF (default)
         uses: actions/upload-artifact@v2
         with:
           name: AlinSNedelcu_resume.pdf
-          path: resume.pdf
+          path: AlinSNedelcu_resume.pdf
 
       - name: Generate artifact for PDF (spanish)
         uses: actions/upload-artifact@v2
         with:
           name: AlinSNedelcu_curriculum.pdf
-          path: resume-spanish.pdf
+          path: AlinSNedelcu_curriculum.pdf
