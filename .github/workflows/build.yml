@@ -12,14 +12,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Install TeX Live
+        run: sudo apt update && sudo apt install texlive-full fonts-font-awesome
 
-      - name: Build PDF
-        run: |
-          apt-get update -qq
-          apt-get install texlive-latex-base
-          pdflatex Alin_Sorin_Nedelcu_CV.tex
-          pdflatex Alin_Sorin_Nedelcu_CV-ES.tex
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build pdf (default)
+        run: latexmk -pdflua ./Alin_Sorin_Nedelcu_CV.tex
+
+      - name: Build pdf (spanish)
+        run: latexmk -pdflua ./Alin_Sorin_Nedelcu_CV-ES.tex
+
+      - name: Upload pdf
+        uses: actions/upload-artifact@v2
+        with:
+          name: template.pdf
+          path: ./template.pdf
+      - name: Upload log
+        uses: actions/upload-artifact@v2
+        with:
+          name: template.log
+          path: ./template.log
 
       - name: Generate artifact for PDF (default)
         uses: actions/upload-artifact@v2
