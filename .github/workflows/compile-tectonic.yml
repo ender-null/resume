@@ -16,7 +16,7 @@ jobs:
 
       - name: Build PDF
         run: |
-          docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "apk add ttf-font-awesome; tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic Alin_Sorin_Nedelcu_CV.tex; tectonic Alin_Sorin_Nedelcu_CV-ES.tex"
+          docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic Alin_Sorin_Nedelcu_CV.tex; tectonic Alin_Sorin_Nedelcu_CV-ES.tex"
 
       - name: Generate artifact for PDF (default)
         uses: actions/upload-artifact@v2

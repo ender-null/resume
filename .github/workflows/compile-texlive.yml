@@ -12,17 +12,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install TeX Live
-        run: sudo apt update && sudo apt install texlive-full fonts-font-awesome
+      - uses: actions/checkout@v2
 
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Build pdf (default)
-        run: latexmk -pdflua -f ./Alin_Sorin_Nedelcu_CV.tex
-
-      - name: Build pdf (spanish)
-        run: latexmk -pdflua -f ./Alin_Sorin_Nedelcu_CV-ES.tex
+      - name: Build PDF
+        run: |
+          docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "apk add ttf-font-awesome; cd /docs; latexmk -pdflua -f Alin_Sorin_Nedelcu_CV.tex; latexmk -pdflua -f Alin_Sorin_Nedelcu_CV-ES.tex"
 
       - name: Upload pdf
         uses: actions/upload-artifact@v2
