@@ -16,7 +16,7 @@ jobs:
 
       - name: Build PDF
         run: |
-          docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "cd /docs; latexmk -pdflua -f Alin_Sorin_Nedelcu_CV.tex; latexmk -pdflua -f Alin_Sorin_Nedelcu_CV-ES.tex"
+          docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "cd /docs; latexmk -pdflua -f resume.tex; latexmk -pdflua -f resume-spanish.tex"
 
       - name: Upload pdf
         uses: actions/upload-artifact@v2
@@ -32,11 +32,11 @@ jobs:
       - name: Generate artifact for PDF (default)
         uses: actions/upload-artifact@v2
         with:
-          name: Alin_Sorin_Nedelcu_CV.pdf
-          path: Alin_Sorin_Nedelcu_CV.pdf
+          name: AlinSNedelcu_resume.pdf
+          path: resume.pdf
 
       - name: Generate artifact for PDF (spanish)
         uses: actions/upload-artifact@v2
         with:
-          name: Alin_Sorin_Nedelcu_CV-ES.pdf
-          path: Alin_Sorin_Nedelcu_CV-ES.pdf
+          name: AlinSNedelcu_curriculum.pdf
+          path: resume-spanish.pdf
