@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout
+      - uses: actions/checkout@main
 
       - name: Build PDF
         run: |
@@ -21,13 +21,13 @@ jobs:
           mv resume-spanish.pdf AlinSNedelcu_curriculum.pdf
 
       - name: Generate artifact for PDF (default)
-        uses: actions/upload-artifact
+        uses: actions/upload-artifact@main
         with:
           name: AlinSNedelcu_resume.pdf
           path: AlinSNedelcu_resume.pdf
 
       - name: Generate artifact for PDF (spanish)
-        uses: actions/upload-artifact
+        uses: actions/upload-artifact@main
         with:
           name: AlinSNedelcu_curriculum.pdf
           path: AlinSNedelcu_curriculum.pdf
