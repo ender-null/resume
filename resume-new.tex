@@ -1,97 +1,98 @@
 \documentclass[10pt,a4paper]{article}
 
-\usepackage[margin=1.6cm]{geometry}
+\usepackage[margin=1.4cm]{geometry}
 \usepackage{fontspec}
-\setmainfont{Inter}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{fontawesome5}
+\usepackage{xcolor}
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{3pt}
-\setlist[itemize]{leftmargin=1.1em, topsep=2pt, itemsep=2pt}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{leftmargin=1em, itemsep=2pt, topsep=2pt}
 
-\titleformat{\section}{\large\bfseries\uppercase}{}{0pt}{}[\titlerule]
+\hypersetup{
+colorlinks=true,
+urlcolor=black,
+pdfborder={0 0 0}
+}
+
+\titleformat{\section}{\large\bfseries}{}{0pt}{}
 
 \begin{document}
 
 {\Huge Alin Nedelcu}
 
-\faPhone{} +34 653 751 742 \\
+\faLinkedin{} \href{https://linkedin.com/in/asnedelcu}{linkedin.com/in/asnedelcu}  \\
+\faGlobe{} \href{https://end.works}{end.works} \\
 \faEnvelope{} \href{mailto:asnedelcu@icloud.com}{asnedelcu@icloud.com} \\
-\faGlobe{} \href{https://end.works}{homepage} \\
-\faLinkedin{} \href{https://linkedin.com/in/asnedelcu}{linkedin.com/in/asnedelcu}
+\faPhone{} +34 653 751 742 
 
 \section*{Experience}
 
-\textbf{Software Engineer} \hfill Oct 2022 -- Nov 2024 \\
-Aimsun — Barcelona, Spain
-\begin{itemize}
-    \item Developed user panels for account, subscription, license, and 2FA management.
-    \item Built admin interfaces for license assignment, billing editing, and project access control.
-    \item Created a shared authentication module used across multiple apps.
-    \item Contributed to front-end modules in Aimsun Live, a real-time traffic prediction platform.
-\end{itemize}
+\textbf{Freelance — Remote} \hfill Nov 2024 -- Current \\
+\textit{Full-Stack Developer} \\
+Developing \textbf{mobile applications} for \textbf{iOS} and \textbf{Android}, focusing on \textbf{secure data storage}, \textbf{real-time features}, \textbf{analytics}, and \textbf{monetization systems}. Responsible for \textbf{architecture decisions}, \textbf{CI/CD pipelines}, \textbf{testing}, and \textbf{publishing workflows}. \\
+\textit{Tech:} \textbf{React Native}, \textbf{Expo}, \textbf{TypeScript}, \textbf{Redux Toolkit}, \textbf{Firebase}, RevenueCat, HealthKit/Health Connect, MMKV, Encrypted Storage, i18next, Charts, Calendars \\
 
-\textbf{Software Developer} \hfill Dec 2021 -- Oct 2022 \\
-Viewnext — Madrid, Spain
-\begin{itemize}
-    \item Built Iberdrola’s EV charging web app supporting 8,000+ real-time stations.
-    \item Developed route planning tools and optimized booking workflows.
-    \item Coordinated with backend and QA for stable API integrations.
-\end{itemize}
+\textbf{Aimsun — Barcelona, Spain} \hfill Oct 2022 -- Nov 2024 \\
+\textit{Software Engineer} \\
+Worked on a \textbf{large-scale SaaS platform} improving \textbf{account management}, \textbf{subscription workflows}, \textbf{license systems}, and \textbf{multi-factor authentication}. Built internal tools for \textbf{billing}, \textbf{permissions}, and \textbf{user administration}. Contributed to \textbf{shared authentication modules} and \textbf{real-time data visualization interfaces} used across multiple applications. \\
+\textit{Tech:} \textbf{React}, \textbf{Angular}, \textbf{TypeScript}, \textbf{Node.js}, Nginx, Docker, GitLab CI/CD \\
 
-\textbf{Software Developer} \hfill May 2021 -- Oct 2021 \\
-adidas — Zaragoza, Spain
-\begin{itemize}
-    \item Refactored legacy content editor to a modern, unified stack.
-    \item Implemented internationalization and locale management workflows.
-    \item Worked in a cross-functional Scrum team improving content lifecycle.
-\end{itemize}
+\textbf{Viewnext — Madrid, Spain} \hfill Dec 2021 -- Oct 2022 \\
+\textit{Software Developer} \\
+Developed a \textbf{real-time monitoring dashboard} for a nationwide energy service, including \textbf{route planning}, \textbf{map visualizations}, and \textbf{booking flows}. Improved \textbf{API communication reliability}, implemented \textbf{performance enhancements}, and collaborated with QA to stabilize production deployments. \\
+\textit{Tech:} Angular, TypeScript, Webpack, Mapbox, Jenkins, REST APIs \\
 
-\textbf{Software Developer} \hfill Dec 2019 -- Feb 2021 \\
-Eleven Paths — Valencia, Spain
-\begin{itemize}
-    \item Migrated SandaS GRC from legacy JS/Java to Angular 2 with upgraded UI/UX.
-    \item Maintained Java backend modules and expanded enterprise GRC features.
-    \item Improved risk assessment tools, gap analysis, and reporting dashboards.
-\end{itemize}
+\textbf{adidas — Zaragoza, Spain} \hfill May 2021 -- Dec 2021 \\
+\textit{Software Developer} \\
+Modernized \textbf{legacy internal tooling} by rebuilding a \textbf{content editor} with \textbf{modern web technologies}. Implemented \textbf{full internationalization support}, optimized \textbf{translation workflows}, and collaborated with \textbf{design and content teams} to streamline publishing processes within an \textbf{Agile environment}. \\
+\textit{Tech:} Angular, TypeScript, Node.js, Jenkins, i18n  \\
 
-\textbf{Software Developer} \hfill Oct 2017 -- Dec 2019 \\
-Ingenia Sistemas Avanzados para el Transporte — Zaragoza, Spain
-\begin{itemize}
-    \item Built a responsive ticketing platform with payment integrations.
-    \item Developed admin tools for schedules, bus lines, drivers, and real-time data.
-    \item Created a mobile app with bus arrival predictions and push notifications.
-\end{itemize}
+\textbf{Eleven Paths — Valencia, Spain} \hfill Dec 2019 -- May 2021 \\
+\textit{Software Developer} \\
+Migrated a \textbf{governance and risk management platform} from outdated JavaScript and Java code to a \textbf{modern Angular architecture} with improved \textbf{UX}. Maintained \textbf{backend systems}, implemented new \textbf{enterprise features}, and enhanced \textbf{business risk modeling}, \textbf{reporting}, and \textbf{data visualization tools}. \\
+\textit{Tech:} Angular, Java, Spring, PostgreSQL, Linux \\
 
-\textbf{Front-End Developer} \hfill Mar 2017 -- Aug 2017 \\
-Rana Negra — Zaragoza, Spain
-\begin{itemize}
-    \item Built dynamic client websites using Symfony with modular CMS.
-    \item Led development of an email management tool using Angular 2 and Stripe.
-\end{itemize}
+\textbf{Ingenia Sistemas Avanzados para el Transporte — Zaragoza, Spain} \hfill Oct 2017 -- Dec 2019 \\
+\textit{Software Developer} \\
+Developed a \textbf{responsive ticketing system} with \textbf{online payments}, \textbf{administrative tools}, and a \textbf{mobile companion app} providing \textbf{real-time arrival predictions} and \textbf{notifications}. Collaborated with \textbf{backend}, \textbf{design}, and \textbf{operations teams} to improve reliability. \\
+\textit{Tech:} Angular 2, Cordova, Node.js, MySQL, Nginx \\
+
+\textbf{Rana Negra — Zaragoza, Spain} \hfill Mar 2017 -- Sep 2017 \\
+\textit{Front-End Developer} \\
+Built \textbf{dynamic websites} using a \textbf{modular CMS} and implemented \textbf{custom interactive components}. Developed an \textbf{email automation tool} with \textbf{subscription billing}, improving usability and frontend maintainability. \\
+\textit{Tech:} Symfony, Angular 2, Stripe, HTML5, CSS3
 
 \section*{Formation}
 
-\textbf{FP2} — Desarrollo de Aplicaciones Multiplataforma \\
-CPIFP Los Enlaces, Zaragoza \hfill 2014–2016
+\textbf{Decree} — Development of \textbf{Multiplatform Applications} \\
+\textit{CPIFP Los Enlaces} — Zaragoza \hfill 2014-2016
 
-Spanish, Romanian, English
+\textbf{Google Cloud Professional Cloud Architect} — \\
+\textit{Formación San Miguel} \hfill 2025
+
+\textbf{Languages:} Spanish, Romanian, English
 
 \section*{Projects}
 
+\textbf{Zierzo} — \href{https://zierzo.end.works}{zierzo.end.works} \\
+Zierzo puts Zaragoza at your fingertips. Check \textbf{real-time bus and tram schedules}, explore \textbf{lines and stations}, and see what's playing in \textbf{local cinemas} — all in one place.  \\
+Tech: \textbf{React Native}, \textbf{Expo (Router, EAS)}, \textbf{Redux Toolkit}, MMKV, \textbf{Firebase} (Analytics, Crashlytics, Remote Config), RevenueCat, Google Mobile Ads, FlashList, Reanimated, Bottom Sheet (Gorhom), i18n-js, TypeScript, Nest.js, MongoDB.
+
 \textbf{LoveLust} — \href{https://lovelust.end.works}{lovelust.end.works} \\
-Private wellness and intimacy tracker for mobile, designed for full privacy and customization.  
-Tech: React Native, Expo, TypeScript, Redux Toolkit, Firebase, RevenueCat, HealthKit/Health Connect, MMKV, Encrypted Storage, i18next, Charts, Calendars.
+Private \textbf{wellness} and \textbf{intimacy tracker} for mobile, designed for full \textbf{privacy} and \textbf{customization}.  \\
+Tech: \textbf{React Native}, \textbf{Expo}, \textbf{TypeScript}, \textbf{Redux Toolkit}, \textbf{Firebase}, RevenueCat, HealthKit/Health Connect, MMKV, Encrypted Storage, i18next, Charts, Calendars.
 
 \section*{Tech Stack}
 
-\textbf{Front-end:} React, Angular, Next.js, Vite, Cordova, HTML5, CSS3, SASS \\
-\textbf{Back-end / Infra:} Node.js, Nest.js, Java, Nginx, Webpack, Docker, Linux \\
-\textbf{Testing / CI/CD:} Jest, RTL, Karma, Jenkins, GitLab/GitHub CI \\
-\textbf{Databases:} Firebase, MongoDB, MySQL, MariaDB, PostgreSQL \\
-\textbf{Other:} Git, Scrum, Jira, Confluence, Mapbox, TypeScript, JavaScript
+\textbf{Front-end:} React 18/19, Angular 2-18, Next.js, React Native, Expo, Vite, Tailwind CSS, Zustand, Redux Toolkit, HTML5, CSS3, SASS \\
+\textbf{Back-end:} Node.js, Nest.js, Express, GraphQL, REST APIs, Nginx, Docker, Kubernetes, Linux \\
+\textbf{Cloud / DevOps:} GCP (\textbf{Firebase}, Compute Engine, Storage), CI/CD (\textbf{GitLab}, \textbf{GitHub Actions}, Jenkins) \\
+\textbf{Testing:} Jest, React Testing Library, Cypress, Karma \\
+\textbf{Databases:} MongoDB, PostgreSQL, MySQL, MariaDB, Firebase Realtime/Firestore \\
+\textbf{Other:} \textbf{TypeScript}, Git, Scrum, Jira, Confluence, Mapbox, Webpack, Performance Optimization
 
 \end{document}
