@@ -16,7 +16,7 @@ jobs:
 
       - name: Build PDF
         run: |
-          docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic resume.tex; tectonic resume-spanish.tex"
+          docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic resume.tex"
           mv resume.pdf AlinNedelcu_resume.pdf
 
       - name: Generate artifact for PDF (english)
@@ -33,7 +33,7 @@ jobs:
 
       - name: Build PDF
         run: |
-          docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic resume.tex; tectonic resume-spanish.tex"
+          docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic resume-spanish.tex"
           mv resume-spanish.pdf AlinNedelcu_curriculum.pdf
 
       - name: Generate artifact for PDF (spanish)
@@ -41,3 +41,20 @@ jobs:
         with:
           name: AlinNedelcu_curriculum.pdf
           path: AlinNedelcu_curriculum.pdf
+
+  new:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Build PDF
+        run: |
+          docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic resume-new.tex"
+          mv resume-new.pdf AlinNedelcu_resume_new.pdf
+
+      - name: Generate artifact for PDF (new)
+        uses: actions/upload-artifact@main
+        with:
+          name: AlinNedelcu_resume_new.pdf
+          path: AlinNedelcu_resume_new.pdf
