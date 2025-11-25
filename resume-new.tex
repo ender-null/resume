@@ -2,6 +2,11 @@
 
 \usepackage[margin=1.4cm]{geometry}
 \usepackage{fontspec}
+\IfFontExistsTF{Inter}{
+    \setsansfont{Inter}
+}{
+    \setsansfont{Open Sans}
+}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
@@ -26,7 +31,7 @@ pdfborder={0 0 0}
 
 \faLinkedin{} \href{https://linkedin.com/in/asnedelcu}{linkedin.com/in/asnedelcu}  \\
 \faGlobe{} \href{https://end.works}{end.works} \\
-\faEnvelope{} \href{mailto:asnedelcu@icloud.com}{asnedelcu@icloud.com} \\
+\faEnvelope{} \href{mailto:alin@end.works}{alin@end.works} \\
 \faPhone{} +34 653 751 742 
 
 \section*{Experience}
