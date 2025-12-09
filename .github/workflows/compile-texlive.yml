@@ -50,11 +50,11 @@ jobs:
 
       - name: Build PDF
         run: |
-          docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "cd /docs; latexmk -pdflua -f resume-new.tex"
-          mv resume-new.pdf AlinNedelcu_resume_new.pdf
+          docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "cd /docs; latexmk -pdflua -f resume-complete.tex"
+          mv resume-complete.pdf AlinNedelcu_resume_complete.pdf
 
-      - name: Generate artifact for PDF (new)
+      - name: Generate artifact for PDF (complete)
         uses: actions/upload-artifact@main
         with:
-          name: AlinNedelcu_resume_new.pdf
-          path: AlinNedelcu_resume_new.pdf
+          name: AlinNedelcu_resume_complete.pdf
+          path: AlinNedelcu_resume_complete.pdf
