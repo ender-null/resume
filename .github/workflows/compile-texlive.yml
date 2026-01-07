@@ -16,14 +16,14 @@ jobs:
 
       - name: Build PDF
         run: |
-          docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "cd /docs; latexmk -pdflua -f resume.tex"
-          mv resume.pdf AlinNedelcu_resume.pdf
+          docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "cd /docs; latexmk -pdflua -f resume-english.tex"
+          mv resume-english.pdf alin_trandafir_resume.pdf
 
       - name: Generate artifact for PDF (english)
         uses: actions/upload-artifact@main
         with:
-          name: AlinNedelcu_resume.pdf
-          path: AlinNedelcu_resume.pdf
+          name: alin_trandafir_resume.pdf
+          path: alin_trandafir_resume.pdf
 
   spanish:
     runs-on: ubuntu-latest
@@ -34,15 +34,15 @@ jobs:
       - name: Build PDF
         run: |
           docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "cd /docs; latexmk -pdflua -f resume-spanish.tex"
-          mv resume-spanish.pdf AlinNedelcu_curriculum.pdf
+          mv resume-spanish.pdf alin_trandafir_curriculum.pdf
 
       - name: Generate artifact for PDF (spanish)
         uses: actions/upload-artifact@main
         with:
-          name: AlinNedelcu_curriculum.pdf
-          path: AlinNedelcu_curriculum.pdf
+          name: alin_trandafir_curriculum.pdf
+          path: alin_trandafir_curriculum.pdf
 
-  new:
+  resume:
     runs-on: ubuntu-latest
 
     steps:
@@ -50,11 +50,11 @@ jobs:
 
       - name: Build PDF
         run: |
-          docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "cd /docs; latexmk -pdflua -f resume-complete.tex"
-          mv resume-complete.pdf AlinNedelcu_resume_complete.pdf
+          docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "cd /docs; latexmk -pdflua -f resume.tex"
+          mv resume.pdf alin_trandafir_cv.pdf
 
-      - name: Generate artifact for PDF (complete)
+      - name: Generate artifact for PDF
         uses: actions/upload-artifact@main
         with:
-          name: AlinNedelcu_resume_complete.pdf
-          path: AlinNedelcu_resume_complete.pdf
+          name: alin_trandafir_cv.pdf
+          path: alin_trandafir_cv.pdf
