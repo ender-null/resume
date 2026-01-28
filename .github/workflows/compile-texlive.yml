@@ -42,7 +42,7 @@ jobs:
           name: AlinNedelcu_curriculum.pdf
           path: AlinNedelcu_curriculum.pdf
 
-  new:
+  complete:
     runs-on: ubuntu-latest
 
     steps:
@@ -58,3 +58,20 @@ jobs:
         with:
           name: AlinNedelcu_resume_complete.pdf
           path: AlinNedelcu_resume_complete.pdf
+
+  dev:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Build PDF
+        run: |
+          docker run --mount src=$PWD,target=/docs,type=bind texlive/texlive /bin/sh -c "cd /docs; latexmk -pdflua -f resume-dev.tex"
+          mv resume-dev.pdf AlinNedelcu_resume_dev.pdf
+
+      - name: Generate artifact for PDF (dev)
+        uses: actions/upload-artifact@main
+        with:
+          name: AlinNedelcu_resume_dev.pdf
+          path: AlinNedelcu_resume_dev.pdf

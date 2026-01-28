@@ -1,0 +1,165 @@
+\documentclass[9pt]{developercv} % Default font size, values from 8-12pt are recommended
+\begin{document}
+
+\begin{minipage}[t]{0.45\textwidth} % Left column with your name and title, change the width as needed
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+	
+	\colorbox{black}{{\HUGE\textcolor{white}{\textbf{\MakeUppercase{Alin}}}}} % First name
+	
+	\colorbox{black}{{\HUGE\textcolor{white}{\textbf{\MakeUppercase{Trandafir}}}}} % Last name
+	
+	\vspace{6pt} % Vertical whitespace
+	
+	{\huge Full-Stack Software Developer} % Career or current job title
+\end{minipage}
+\hfill % Automatic horizontal whitespace
+\begin{minipage}[t]{0.27\textwidth} % Center column with the first column of icons
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+	
+	% The first parameter is the FontAwesome icon name, the second is the box size and the third is the text
+	% Other icons can be found by referring to fontawesome5.pdf (supplied with the template) and using the word after \fa in the command for the icon you want
+	\icon{MapMarker}{12}{Zaragoza, Spain}\\
+	\icon{Phone}{12}{+34 653 751 742}\\
+	\icon{At}{12}{\href{mailto:alin_trandafir@icloud.com}{alin_trandafir@icloud.com}}\\	
+\end{minipage}
+\hfill % Automatic horizontal whitespace
+\begin{minipage}[t]{0.27\textwidth} % Right column with the first column of icons
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+	
+	% The first parameter is the FontAwesome icon name, the second is the box size and the third is the text
+	% Other icons can be found by referring to fontawesome5.pdf (supplied with the template) and using the word after \fa in the command for the icon you want
+	\icon{Globe}{12}{\href{https://end.works}{end.works}}\\
+	\icon{Github}{12}{\href{https://github.com/ender-null}{github.com/ender-null}}\\
+	\icon{Linkedin}{12}{\href{https://linkedin.com/in/alin-trandafir}{linkedin.com/in/alin-trandafir}}\\
+\end{minipage}
+
+\vspace{0.5cm} % Vertical whitespace
+
+\cvsect{Who Am I?}
+
+\begin{minipage}[t]{0.4\textwidth} % Left column with the introduction text, change the width as needed
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+	
+	\lorem \lorem \lorem \lorem \lorem\\ % Dummy text
+\end{minipage}
+\hfill % Automatic horizontal whitespace
+\begin{minipage}[t]{0.5\textwidth} % Right column with the skills bar chart, change the width as needed
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+	
+	\begin{barchart}{5.5} % The parameter to the barchart environment is the maximum width (in cm) of the longest bar
+		\baritem{TypeScript}{60}
+		\baritem{React}{70}
+		\baritem{Angular}{70}
+		\baritem{Next.js}{40}
+		\baritem{Node.js}{60}
+        \baritem{Docker}{100}
+	\end{barchart}
+\end{minipage}
+
+% Output a series of bubbles showing your proficiency with environments and/or tools
+\begin{center}
+	\bubbles{5/Eclipse, 6/git, 4/Office, 3/Inkscape, 3/Blender} % Each bubble must be in the format of '<size>/<label>' and you can specify as many bubbles as will fit on the page
+\end{center}
+
+\cvsect{Experience}
+
+\begin{entrylist}
+	\entry
+		{Nov 2024 -- Current}
+		{Full-Stack Developer}
+		{Freelance}
+		{Build and ship \textbf{iOS} and \textbf{Android} apps with secure storage, real-time features, analytics, and subscriptions. Also develop \textbf{websites for small local businesses} such as restaurants and shops, helping them present their products and services online. Lead \textbf{architecture}, \textbf{CI/CD}, \textbf{testing}, and full publishing workflows. Manage full product lifecycle from development to store release.
+         \texttt{React Native}\slashsep\texttt{Expo}\slashsep\texttt{TypeScript}\slashsep\texttt{Redux Toolkit}\slashsep\texttt{RevenueCat}\slashsep\texttt{HealthKit/Health Connect}\slashsep\texttt{MMKV}\slashsep\texttt{i18next}}
+	\entry
+		{Oct 2022 -- Nov 2024}
+		{Software Engineer}
+		{Aimsun}
+		{Built and maintained core modules for a \textbf{large SaaS platform}, including authentication, accounts, subscriptions, licensing, and MFA. Developed internal tools for \textbf{billing}, \textbf{permissions}, and user administration. Contributed to shared auth libraries and real-time data visualization interfaces. \\
+        \texttt{React}\slashsep\texttt{TypeScript}\slashsep\texttt{Next.js}\slashsep\texttt{i18next}\slashsep\texttt{MapBox}\slashsep\texttt{GitLab CI/CD}}
+	\entry
+		{Dec 2021 -- Oct 2022}
+		{Software Developer}
+		{Viewnext}
+		{Developed a \textbf{real-time monitoring dashboard} for a nationwide energy service, including route planning, maps, and booking flows. Improved API reliability, enhanced performance, and collaborated with QA to stabilize releases. \\
+        \texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{Jenkins}\slashsep\texttt{GitLab CI/CD}}
+    \entry
+		{May 2021 -- Dec 2021}
+		{Software Developer}
+		{adidas}
+		{Rebuilt legacy internal tools with modern web tech, delivering an improved \textbf{content editor}. Implemented \textbf{internationalization} and optimized translation workflows. Worked with design and content teams to streamline publishing in an Agile environment. \\
+        \texttt{React}\slashsep\texttt{TypeScript}\slashsep\texttt{i18n}}
+    \entry
+		{Dec 2019 -- May 2021}
+		{Software Developer}
+		{Telefónica / Eleven Paths}
+		{Migrated a governance and risk platform to a modern \textbf{Angular} architecture. Added enterprise features, improved UX, and maintained backend services for reporting and risk modeling. \\
+        \texttt{Angular}\slashsep\texttt{Java}\slashsep\texttt{i18n}}
+    \entry
+		{Oct 2017 -- Dec 2019}
+		{Software Developer}
+		{Ingenia Sistemas Avanzados para el Transporte}
+		{Built a \textbf{responsive ticketing system} with online payments and admin tools, plus a mobile app with real-time arrivals and alerts. Collaborated with backend, design, and operations teams to improve reliability. \\
+        \texttt{Angular}\slashsep\texttt{Cordova}\slashsep\texttt{i18n}}
+    \entry
+		{Mar 2017 -- Sep 2017}
+		{Software Developer}
+		{Ingenia Sistemas Avanzados para el Transporte}
+		{Built dynamic websites using a modular CMS and developed custom interactive components. Created an email automation tool with subscription billing. \\
+        \texttt{Symfony}\slashsep\texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{Stripe}}
+\end{entrylist}
+
+\cvsect{Education}
+
+\begin{entrylist}
+	\entry
+		{2014 -- 2016}
+		{Multiplatform Applications Degree}
+		{CPIFP Los Enlaces}
+		{\lorem\lorem\lorem}
+
+    \entry
+		{2012 -- 2014}
+		{Multiplatform Applications Degree}
+		{CPIFP Los Enlaces}
+		{\lorem\lorem\lorem}
+
+    \entry
+		{2025}
+		{Google Cloud Professional Cloud Architect}
+		{Formación San Miguel}
+		{\lorem\lorem\lorem}
+
+    \entry
+		{2025}
+		{Oxford Test of English - Advanced (C1)}
+		{Kings Corner English School}
+		{\lorem\lorem\lorem}
+\end{entrylist}
+
+\begin{minipage}[t]{0.3\textwidth} % Left column width
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+
+	\cvsect{Languages}
+	
+	\textbf{Spanish} - native\\
+	\textbf{English} - C1\\
+	\textbf{Romanian} - native
+\end{minipage}
+\hfill % Automatic horizontal whitespace
+\begin{minipage}[t]{0.3\textwidth} % Center column width
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+	
+	\cvsect{Hobbies}
+	
+	I love... \lorem
+\end{minipage}
+\hfill % Automatic horizontal whitespace
+\begin{minipage}[t]{0.3\textwidth} % Right column width
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+	
+	\cvsect{Non profit}
+	
+	I help... \lorem
+\end{minipage}
+
+\end{document}
