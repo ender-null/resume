@@ -1,4 +1,11 @@
 \documentclass[9pt]{developercv} % Default font size, values from 8-12pt are recommended
+
+\newcommand{\shortentry}[4]{%
+	\parbox[t]{0.175\textwidth}{#1}&\parbox[t]{0.825\textwidth}{%
+		\textbf{#2}\hfill{\footnotesize \textbf{\textcolor{black}{#3}}}\\[-2pt]#4%
+	}\\[-4pt]%
+}
+
 \begin{document}
 
 \begin{minipage}[t]{0.45\textwidth} % Left column with your name and title, change the width as needed
@@ -36,11 +43,9 @@
 \begin{minipage}[t]{0.4\textwidth} % Left column with the introduction text
 	\vspace{-\baselineskip} % Required for vertically aligning minipages
 
-	I'm a senior full-stack developer with \textasciitilde{}8 years of experience building scalable web and mobile applications with TypeScript. I have deep expertise in Angular, React, and React Native, working on complex SPAs, shared component systems, and production apps in enterprise and high-traffic environments.
+	Senior full-stack developer with \textasciitilde{}8 years building scalable web and mobile apps in TypeScript. Deep expertise in Angular, React, and React Native across enterprise and high-traffic environments.
     \\
-    I value clean architecture, code quality, and maintainability. I'm comfortable leading technical direction, driving architectural decisions, and mentoring engineers, as well as owning features end to end as an individual engineer --- from design and implementation to testing and deployment. I enjoy working with multidisciplinary teams and thrive in remote and distributed environments.
-    \\
-    Since late 2024, I have been working independently --- building and shipping my own products while taking on client projects.
+    Comfortable leading technical direction and owning features end to end. Currently working independently --- building products and delivering client work.
 \end{minipage}
 \hfill % Automatic horizontal whitespace
 \begin{minipage}[t]{0.5\textwidth} % Right column with the skills bar chart
@@ -55,11 +60,6 @@
         \baritem{Docker}{60}
 	\end{barchart}
 \end{minipage}
-
-\cvsect{Soft Skills}
-\begin{center}
-Technical Leadership\slashsep Cross-functional Collaboration\slashsep Agile / Scrum\slashsep International Team Experience\slashsep Remote Work\slashsep Project Management\slashsep Problem Solving
-\end{center}
 
 \cvsect{Experience}
 
@@ -111,25 +111,25 @@ Technical Leadership\slashsep Cross-functional Collaboration\slashsep Agile / Sc
 \cvsect{Education}
 
 \begin{entrylist}
-	\entry
+	\shortentry
 		{2014 -- 2016}
 		{Multiplatform Applications Degree}
 		{CPIFP Los Enlaces}
 		{}
 
-    \entry
+    \shortentry
 		{2012 -- 2014}
 		{Computer Systems and Networking Degree}
 		{CPIFP Los Enlaces}
 		{}
 
-    \entry
+    \shortentry
 		{2025}
 		{Google Cloud Professional Cloud Architect}
 		{Formación San Miguel}
 		{}
 
-    \entry
+    \shortentry
 		{2025}
 		{Oxford Test of English -- Advanced (C1)}
 		{Kings Corner English School}
@@ -139,20 +139,23 @@ Technical Leadership\slashsep Cross-functional Collaboration\slashsep Agile / Sc
 \begin{minipage}[t]{0.3\textwidth} % Left column width
 	\vspace{-\baselineskip} % Required for vertically aligning minipages
 
-	\cvsect{Languages}
-
-	\textbf{Spanish} --- native\\
-	\textbf{English} --- C1\\
-	\textbf{Romanian} --- native
+	\cvsect{Soft Skills}
+	Technical Leadership\\
+	Cross-functional Collaboration\\
+	Agile / Scrum\\
+	International Teams\\
+	Remote Work\\
+	Project Management\\
+	Problem Solving
 \end{minipage}
 \hfill % Automatic horizontal whitespace
 \begin{minipage}[t]{0.3\textwidth} % Center column width
 	\vspace{-\baselineskip} % Required for vertically aligning minipages
 
 	\cvsect{Projects}
-	\textbf{\href{https://zierzo.end.works}{Zierzo}} is a city mobility and leisure app for Zaragoza that provides \textbf{real-time public transport information}, route details, and local cinema listings, built with a strong focus on performance, scalability, and everyday usability.
+	\textbf{\href{https://zierzo.end.works}{Zierzo}} is a city mobility app for Zaragoza with real-time public transport, route details, and cinema listings.
 
-    \textbf{\href{https://lovelust.end.works}{LoveLust}} is a \textbf{privacy-first wellness and intimacy tracker} designed for personal use, emphasizing data security, customization, and long-term tracking --- reaching over \textbf{13,000 monthly active users} at peak. Both projects were developed end to end with \textbf{React Native and Expo}, integrating state management, analytics, monetization, and backend services.
+    \textbf{\href{https://lovelust.end.works}{LoveLust}} is a privacy- and security-first intimacy and wellness journal, reaching over \textbf{13,000 monthly active users}.
 
 \end{minipage}
 \hfill % Automatic horizontal whitespace

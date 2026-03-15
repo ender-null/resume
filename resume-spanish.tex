@@ -1,4 +1,11 @@
 \documentclass[9pt]{developercv} % Default font size, values from 8-12pt are recommended
+
+\newcommand{\shortentry}[4]{%
+	\parbox[t]{0.175\textwidth}{#1}&\parbox[t]{0.825\textwidth}{%
+		\textbf{#2}\hfill{\footnotesize \textbf{\textcolor{black}{#3}}}\\[-2pt]#4%
+	}\\[-4pt]%
+}
+
 \begin{document}
 
 \begin{minipage}[t]{0.45\textwidth} % Left column with your name and title, change the width as needed
@@ -36,11 +43,9 @@
 \begin{minipage}[t]{0.4\textwidth} % Left column with the introduction text
 	\vspace{-\baselineskip} % Required for vertically aligning minipages
 
-	Soy un desarrollador full-stack senior con \textasciitilde{}8 años de experiencia construyendo aplicaciones web y móviles escalables con TypeScript. Tengo experiencia profunda en Angular, React y React Native, trabajando en SPAs complejas, sistemas de componentes compartidos y aplicaciones en producción en entornos empresariales y de alto tráfico.
+	Desarrollador full-stack senior con \textasciitilde{}8 años construyendo aplicaciones web y móviles escalables con TypeScript. Experiencia profunda en Angular, React y React Native en entornos empresariales y de alto tráfico.
     \\
-    Valoro la arquitectura limpia, la calidad del código y la mantenibilidad. Me siento cómodo liderando la dirección técnica, tomando decisiones de arquitectura y haciendo mentoría, así como siendo responsable de funcionalidades de principio a fin de forma autónoma --- desde el diseño y la implementación hasta las pruebas y el despliegue. Disfruto trabajando con equipos multidisciplinares y me adapto bien a entornos remotos y distribuidos.
-    \\
-    Desde finales de 2024, trabajo de forma independiente, desarrollando y publicando mis propios productos y colaborando con clientes.
+    Cómodo liderando la dirección técnica y asumiendo funcionalidades de principio a fin. Desde finales de 2024, trabajo de forma independiente --- desarrollando productos propios y colaborando con clientes.
 \end{minipage}
 \hfill % Automatic horizontal whitespace
 \begin{minipage}[t]{0.5\textwidth} % Right column with the skills bar chart
@@ -55,11 +60,6 @@
         \baritem{Docker}{60}
 	\end{barchart}
 \end{minipage}
-
-\cvsect{Soft Skills}
-\begin{center}
-Liderazgo técnico\slashsep Colaboración multidisciplinar\slashsep Metodologías Agile / Scrum\slashsep Experiencia en equipos internacionales\slashsep Trabajo en remoto\slashsep Gestión de proyectos\slashsep Resolución de problemas
-\end{center}
 
 \cvsect{Experiencia}
 
@@ -111,25 +111,25 @@ Liderazgo técnico\slashsep Colaboración multidisciplinar\slashsep Metodología
 \cvsect{Formación}
 
 \begin{entrylist}
-	\entry
+	\shortentry
 		{2014 -- 2016}
 		{Grado en Desarrollo de Aplicaciones Multiplataforma}
 		{CPIFP Los Enlaces}
 		{}
 
-    \entry
+    \shortentry
 		{2012 -- 2014}
 		{Grado en Sistemas Microinformáticos y Redes}
 		{CPIFP Los Enlaces}
 		{}
 
-    \entry
+    \shortentry
 		{2025}
 		{Google Cloud Professional Cloud Architect}
 		{Formación San Miguel}
 		{}
 
-    \entry
+    \shortentry
 		{2025}
 		{Oxford Test of English -- Advanced (C1)}
 		{Kings Corner English School}
@@ -139,20 +139,23 @@ Liderazgo técnico\slashsep Colaboración multidisciplinar\slashsep Metodología
 \begin{minipage}[t]{0.3\textwidth} % Left column width
 	\vspace{-\baselineskip} % Required for vertically aligning minipages
 
-	\cvsect{Idiomas}
-
-	\textbf{Español} --- nativo\\
-	\textbf{Inglés} --- C1\\
-	\textbf{Rumano} --- nativo
+	\cvsect{Soft Skills}
+	Liderazgo técnico\\
+	Colaboración multidisciplinar\\
+	Agile / Scrum\\
+	Equipos internacionales\\
+	Trabajo en remoto\\
+	Gestión de proyectos\\
+	Resolución de problemas
 \end{minipage}
 \hfill % Automatic horizontal whitespace
 \begin{minipage}[t]{0.3\textwidth} % Center column width
 	\vspace{-\baselineskip} % Required for vertically aligning minipages
 
 	\cvsect{Proyectos}
-	\textbf{\href{https://zierzo.end.works}{Zierzo}} es una aplicación de movilidad urbana y ocio para Zaragoza que ofrece \textbf{información de transporte público en tiempo real}, detalles de rutas y cartelera de cines locales, desarrollada con un fuerte enfoque en el rendimiento, la escalabilidad y la usabilidad cotidiana.
+	\textbf{\href{https://zierzo.end.works}{Zierzo}} es una aplicación de movilidad urbana para Zaragoza con transporte público en tiempo real, detalles de rutas y cartelera de cines.
 
-    \textbf{\href{https://lovelust.end.works}{LoveLust}} es un \textbf{tracker de bienestar e intimidad centrado en la privacidad}, diseñado para uso personal --- alcanzando más de \textbf{13.000 usuarios activos mensuales} en su mejor momento. Ambos proyectos fueron desarrollados de principio a fin con \textbf{React Native y Expo}, integrando gestión de estado, analíticas, monetización y servicios backend.
+    \textbf{\href{https://lovelust.end.works}{LoveLust}} es un diario de bienestar e intimidad centrado en la privacidad y seguridad, con más de \textbf{13.000 usuarios activos mensuales}.
 
 \end{minipage}
 \hfill % Automatic horizontal whitespace
