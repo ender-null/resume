@@ -1,49 +1,166 @@
-\documentclass[10pt,a4paper,sans]{moderncv}
-\moderncvstyle{classic}
-\moderncvcolor{purple}
-
-\usepackage[utf8]{inputenc}
-\usepackage[scale=0.77]{geometry}
-\setlength{\hintscolumnwidth}{3.5cm}
-
-\name{Alin}{Trandafir}
-\title{Desarrollador Full-Stack}
-\address{Zaragoza, España}
-\phone[mobile]{+34 653 751 742}
-\email{alin\_trandafir@icloud.com}
-\homepage{end.works}
-\social[linkedin]{alin-trandafir}
-\social[github]{ender-null}
-
+\documentclass[9pt]{developercv} % Default font size, values from 8-12pt are recommended
 \begin{document}
-\makecvtitle
 
-\section{Perfil Profesional}
-\cvitem{}{Desarrollador full-stack con más de 7 años de experiencia creando aplicaciones web y móviles escalables. Experto en React, Angular y TypeScript, con sólida experiencia en desarrollo front-end multiplataforma, UI/UX y metodologías ágiles. Historial comprobado de entrega de soluciones de alto impacto para clientes empresariales y mejora de la eficiencia operativa mediante software innovador.}
+\begin{minipage}[t]{0.45\textwidth} % Left column with your name and title, change the width as needed
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
 
-\section{Habilidades Técnicas}
-\cvitem{Front-end}{React, Angular, Next.js, Vite, Apache Cordova, HTML5, CSS3, SASS}
-\cvitem{Back-end / Infraestructura}{Node.js, Nest.js, Java, Nginx, Webpack, Docker, GNU/Linux}
-\cvitem{Testing \& CI/CD}{Jest, React Testing Library, Karma, Jenkins, GitLab/GitHub CI}
-\cvitem{Bases de Datos}{Firebase, MongoDB, MySQL, MariaDB, PostgreSQL}
-\cvitem{Otros}{Git, Scrum, Jira, Confluence, Mapbox, pruebas unitarias, TypeScript, JavaScript}
+	\colorbox{black}{{\HUGE\textcolor{white}{\textbf{\MakeUppercase{Alin}}}}} % First name
 
-\section{Experiencia Profesional}
-\cventry{Oct 2022--Nov 2024}{Ingeniero de Software}{Aimsun}{Barcelona, España}{}{\begin{itemize}\item Desarrollo de panel de usuario para gestión de cuentas, suscripciones, licencias y funciones de seguridad como 2FA, mejorando la experiencia de usuario y eficiencia operativa.\item Implementación de interfaz de administración para gestión de usuarios, asignación de licencias, control de acceso a proyectos y edición de facturación, reduciendo la carga administrativa.\item Creación de módulo de autenticación compartido y página de inicio de sesión para varias aplicaciones, incluyendo Aimsun Live, optimizando flujos de acceso.\item Contribución a Aimsun Live, plataforma de predicción de tráfico en tiempo real, mejorando la usabilidad y la integración de módulos front-end en centros de gestión de tráfico.\end{itemize}}
-\cventry{Dic 2021--Oct 2022}{Programador de Software}{Viewnext}{Madrid, España}{}{\begin{itemize}\item Desarrollo de aplicación web para Iberdrola con búsqueda, reserva y monitorización de estaciones de carga de vehículos eléctricos, soportando más de 8.000 ubicaciones en tiempo real.\item Implementación de planificación de rutas y optimización de flujo de reservas para mejorar experiencia de usuario y reducir tiempos de espera.\item Coordinación con equipos de backend y QA para garantizar integración de APIs, fiabilidad y experiencia de usuario sin incidencias.\end{itemize}}
-\cventry{May 2021--Oct 2021}{Programador de Software}{adidas}{Zaragoza, España}{}{\begin{itemize}\item Refactorización de editor de contenido heredado hacia un stack moderno, asegurando consistencia del contenido en aplicaciones Android e iOS.\item Integración de flujos de internacionalización, gestión de locales e incorporación de traducciones.\item Participación en equipo Scrum multidisciplinar para optimización de gestión de contenido y mantenimiento de código de alta calidad.\end{itemize}}
-\cventry{Dic 2019--Feb 2021}{Programador de Software}{Eleven Paths}{Valencia, España}{}{\begin{itemize}\item Migración de plataforma SandaS GRC de frontend Java/JS legacy a Angular 2, con mejoras de UI/UX para gestión de riesgos empresariales.\item Mantenimiento y mejora del backend en Java para soportar nuevas funcionalidades del frontend.\item Implementación de mejoras en modelado de arquitectura empresarial, gestión de riesgos, análisis de brechas y reportes en tiempo real.\end{itemize}}
-\cventry{Oct 2017--Dic 2019}{Programador de Software}{Ingenia Sistemas Avanzados para el Transporte S.L.}{Garrapinillos, Zaragoza, España}{}{\begin{itemize}\item Desarrollo de sitio web de venta de billetes responsive y personalizable para varias empresas de autobuses, con integración de pagos y embebido mediante iframes.\item Creación de panel de administración para gestión de líneas, horarios, conductores, estaciones y monitorización de datos en tiempo real.\item Desarrollo de aplicación móvil para consulta de horarios, notificaciones push y visualización de líneas y horarios.\end{itemize}}
-\cventry{Mar 2017--Ago 2017}{Programador Front-End}{Rana Negra}{Zaragoza, España}{}{\begin{itemize}\item Desarrollo de sitios web dinámicos para clientes utilizando Symfony con gestión modular de contenido.\item Liderazgo en proyecto de herramienta colaborativa para gestión de correos electrónicos, con frontend Angular2 e integración de pagos mediante Stripe.\end{itemize}}
+	\colorbox{black}{{\HUGE\textcolor{white}{\textbf{\MakeUppercase{Trandafir}}}}} % Last name
 
-\section{Formación}
-\cventry{2014--2016}{FP Grado Superior}{CPIFP Los Enlaces}{Zaragoza, España}{\textit{Desarrollo de Aplicaciones Multiplataforma}}{}
+	\vspace{6pt} % Vertical whitespace
 
-\section{Idiomas}
-\cvitem{Nativo}{Español, Rumano}
-\cvitem{Fluido}{Inglés}
+	{\huge Desarrollador Full-Stack Senior} % Career or current job title
+\end{minipage}
+\hfill % Automatic horizontal whitespace
+\begin{minipage}[t]{0.27\textwidth} % Center column with the first column of icons
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
 
-\section{Proyectos}
-\cvitem{\href{https://lovelust.end.works}{LoveLust}}{LoveLust es una aplicación de seguimiento privado de bienestar e intimidad para todos los géneros y estilos de relación, que permite registrar interacciones, monitorizar el uso de protección, llevar un control del bienestar personal y obtener información sobre las relaciones, con total privacidad y opciones de personalización. Tecnologías: React Native, Expo, TypeScript, Redux Toolkit, Firebase, RevenueCat, HealthKit/Health Connect, MMKV, Encrypted Storage, i18next, React Native Charts y React Native Calendars.}
+	\icon{MapMarker}{12}{Zaragoza, España}\\
+	\icon{Phone}{12}{+34 653 751 742}\\
+	\icon{At}{12}{\href{mailto:alin\_trandafir@icloud.com}{alin\_trandafir@icloud.com}}\\
+\end{minipage}
+\hfill % Automatic horizontal whitespace
+\begin{minipage}[t]{0.27\textwidth} % Right column with the first column of icons
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+
+	\icon{Globe}{12}{\href{https://end.works}{end.works}}\\
+	\icon{Github}{12}{\href{https://github.com/ender-null}{ender-null}}\\
+	\icon{Linkedin}{12}{\href{https://linkedin.com/in/alin-trandafir}{alin-trandafir}}\\
+\end{minipage}
+
+\vspace{0.5cm} % Vertical whitespace
+
+\cvsect{¿Quién soy?}
+
+\begin{minipage}[t]{0.4\textwidth} % Left column with the introduction text
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+
+	Soy un desarrollador full-stack senior con \textasciitilde{}8 años de experiencia construyendo aplicaciones web y móviles escalables con TypeScript. Tengo experiencia profunda en Angular, React y React Native, trabajando en SPAs complejas, sistemas de componentes compartidos y aplicaciones en producción en entornos empresariales y de alto tráfico.
+    \\
+    Valoro la arquitectura limpia, la calidad del código y la mantenibilidad. Me siento cómodo liderando la dirección técnica, tomando decisiones de arquitectura y haciendo mentoría, así como siendo responsable de funcionalidades de principio a fin de forma autónoma --- desde el diseño y la implementación hasta las pruebas y el despliegue. Disfruto trabajando con equipos multidisciplinares y me adapto bien a entornos remotos y distribuidos.
+    \\
+    Desde finales de 2024, trabajo de forma independiente, desarrollando y publicando mis propios productos y colaborando con clientes.
+\end{minipage}
+\hfill % Automatic horizontal whitespace
+\begin{minipage}[t]{0.5\textwidth} % Right column with the skills bar chart
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+
+	\begin{barchart}{5.5}
+		\baritem{TypeScript / JavaScript}{100}
+		\baritem{React}{90}
+		\baritem{Angular}{90}
+        \baritem{React Native}{80}
+		\baritem{Node.js}{60}
+        \baritem{Docker}{60}
+	\end{barchart}
+\end{minipage}
+
+\cvsect{Soft Skills}
+\begin{center}
+Liderazgo técnico\slashsep Colaboración multidisciplinar\slashsep Metodologías Agile / Scrum\slashsep Experiencia en equipos internacionales\slashsep Trabajo en remoto\slashsep Gestión de proyectos\slashsep Resolución de problemas
+\end{center}
+
+\cvsect{Experiencia}
+
+\begin{entrylist}
+	\entry
+		{Nov 2024--Actualidad}
+		{Desarrollador Full-Stack}
+		{Freelance}
+		{Desarrollé y publiqué \textbf{Zierzo} y \textbf{LoveLust}, dos aplicaciones móviles en producción disponibles en el \textbf{App Store y Google Play}, con almacenamiento seguro, funcionalidades en tiempo real, analíticas y monetización por suscripción --- LoveLust alcanzando más de \textbf{13.000 usuarios activos mensuales} en su mejor momento. También desarrollo \textbf{sitios web para pequeños negocios locales} como restaurantes y tiendas. Gestiono el ciclo de vida completo del producto: \textbf{arquitectura}, \textbf{CI/CD}, \textbf{pruebas} y flujos de publicación en las tiendas. \\
+        \texttt{React Native}\slashsep\texttt{Expo}\slashsep\texttt{TypeScript}\slashsep\texttt{RevenueCat}\slashsep\texttt{HealthKit/Health Connect}\slashsep\texttt{EAS}\slashsep\texttt{Firebase}\slashsep\texttt{i18next}}
+	\entry
+		{Oct 2022--Nov 2024}
+		{Ingeniero de Software}
+		{Aimsun}
+		{Fui responsable de los módulos principales de una \textbf{plataforma SaaS} de extremo a extremo --- autenticación, cuentas, suscripciones, licencias y MFA --- dentro de un equipo multifuncional. Desarrollé herramientas internas para \textbf{facturación}, \textbf{permisos} y administración de usuarios. Contribuí a bibliotecas de autenticación compartidas e interfaces de visualización de datos en tiempo real, colaborando estrechamente con producto y diseño a lo largo del ciclo de vida completo de las funcionalidades. \\
+        \texttt{React}\slashsep\texttt{TypeScript}\slashsep\texttt{Next.js}\slashsep\texttt{i18next}\slashsep\texttt{MapBox}\slashsep\texttt{GitLab CI/CD}\slashsep\texttt{Cypress}}
+	\entry
+		{Dic 2021--Oct 2022}
+		{Desarrollador de Software}
+		{Viewnext}
+		{Desarrollé una \textbf{plataforma de reservas de puntos de carga para vehículos eléctricos} para una importante empresa energética nacional. La plataforma permitía a los usuarios consultar estaciones y tomas disponibles en un mapa interactivo y gestionar todas sus reservas. Contribuí a una \textbf{biblioteca de componentes compartida}, cumpliendo requisitos de calidad estrictos como cobertura de tests casi total y ausencia de code smells. Hice mentoría y apoyo a desarrolladores junior con poca experiencia. \\
+        \texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{RxJS}\slashsep\texttt{Jenkins}\slashsep\texttt{GitLab CI/CD}}
+    \entry
+		{May 2021--Dic 2021}
+		{Desarrollador de Software}
+		{adidas}
+		{Reemplacé herramientas internas heredadas por un \textbf{editor de contenidos} moderno, reduciendo significativamente la fricción editorial. Introduje la \textbf{internacionalización} y optimicé los flujos de traducción en toda la plataforma. Trabajé en un entorno Agile junto a equipos de diseño, contenido e ingeniería. \\
+        \texttt{React}\slashsep\texttt{TypeScript}\slashsep\texttt{Redux}\slashsep\texttt{i18n}}
+    \entry
+		{Dic 2019--May 2021}
+		{Desarrollador de Software}
+		{Telefónica / Eleven Paths}
+		{Lideré la migración de una plataforma de gobernanza y gestión de riesgos a una arquitectura moderna con \textbf{Angular}. Entregué funcionalidades empresariales, mejoré la coherencia de la experiencia de usuario y mantuve servicios backend para informes y modelado de riesgos. \\
+        \texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{RxJS}\slashsep\texttt{Java}\slashsep\texttt{i18n}}
+    \entry
+		{Oct 2017--Dic 2019}
+		{Desarrollador de Software}
+		{Ingenia Sistemas Avanzados para el Transporte}
+		{Desarrollé dos productos principales para empresas privadas de autobús. El primero fue una \textbf{plataforma de venta de billetes personalizable por operador} con descuentos, múltiples métodos de pago y posibilidad de integración mediante iframe en sitios web de terceros. El segundo fue una \textbf{herramienta de back-office interna} para gestionar estaciones, líneas, servicios, conductores y vehículos, con generación dinámica de rutas mediante la \textbf{API de Google Maps}. También contribuí a una aplicación móvil con llegadas en tiempo real y alertas. \\
+        \texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{RxJS}\slashsep\texttt{Cordova}\slashsep\texttt{Stripe}\slashsep\texttt{i18n}}
+    \entry
+		{Mar 2017--Sep 2017}
+		{Desarrollador de Software}
+		{Rananegra}
+		{Desarrollé sitios web dinámicos con un CMS modular y componentes interactivos personalizados. Creé una herramienta de automatización de emails con facturación por suscripción. \\
+        \texttt{Symfony}\slashsep\texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{Stripe}}
+\end{entrylist}
+
+\cvsect{Formación}
+
+\begin{entrylist}
+	\entry
+		{2014 -- 2016}
+		{Grado en Desarrollo de Aplicaciones Multiplataforma}
+		{CPIFP Los Enlaces}
+		{}
+
+    \entry
+		{2012 -- 2014}
+		{Grado en Sistemas Microinformáticos y Redes}
+		{CPIFP Los Enlaces}
+		{}
+
+    \entry
+		{2025}
+		{Google Cloud Professional Cloud Architect}
+		{Formación San Miguel}
+		{}
+
+    \entry
+		{2025}
+		{Oxford Test of English -- Advanced (C1)}
+		{Kings Corner English School}
+		{}
+\end{entrylist}
+
+\begin{minipage}[t]{0.3\textwidth} % Left column width
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+
+	\cvsect{Idiomas}
+
+	\textbf{Español} --- nativo\\
+	\textbf{Inglés} --- C1\\
+	\textbf{Rumano} --- nativo
+\end{minipage}
+\hfill % Automatic horizontal whitespace
+\begin{minipage}[t]{0.3\textwidth} % Center column width
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+
+	\cvsect{Proyectos}
+	\textbf{\href{https://zierzo.end.works}{Zierzo}} es una aplicación de movilidad urbana y ocio para Zaragoza que ofrece \textbf{información de transporte público en tiempo real}, detalles de rutas y cartelera de cines locales, desarrollada con un fuerte enfoque en el rendimiento, la escalabilidad y la usabilidad cotidiana.
+
+    \textbf{\href{https://lovelust.end.works}{LoveLust}} es un \textbf{tracker de bienestar e intimidad centrado en la privacidad}, diseñado para uso personal --- alcanzando más de \textbf{13.000 usuarios activos mensuales} en su mejor momento. Ambos proyectos fueron desarrollados de principio a fin con \textbf{React Native y Expo}, integrando gestión de estado, analíticas, monetización y servicios backend.
+
+\end{minipage}
+\hfill % Automatic horizontal whitespace
+\begin{minipage}[t]{0.3\textwidth} % Right column width
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+
+	\cvsect{Voluntariado}
+	Fundé y lideré la \textbf{Asociación Juvenil Brovrashgka}, centrada en el \textbf{anime y la cultura pop japonesa}. Organicé múltiples eventos culturales, talleres y actividades comunitarias con asistencia creciente. Gestioné la \textbf{planificación de proyectos}, \textbf{presupuestos}, \textbf{voluntarios} y la logística de eventos. Coordiné equipos, establecí colaboraciones y ofrecí actividades atractivas para la comunidad local.
+\end{minipage}
 
 \end{document}

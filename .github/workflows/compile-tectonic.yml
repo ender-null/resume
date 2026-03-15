@@ -8,23 +8,6 @@ on:
   pull_request:
 
 jobs:
-  english:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@main
-
-      - name: Build PDF
-        run: |
-          docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic resume-english.tex"
-          mv resume-english.pdf alin_trandafir_resume.pdf
-
-      - name: Generate artifact for PDF (english)
-        uses: actions/upload-artifact@main
-        with:
-          name: alin_trandafir_resume.pdf
-          path: alin_trandafir_resume.pdf
-
   spanish:
     runs-on: ubuntu-latest
 
@@ -58,20 +41,3 @@ jobs:
         with:
           name: alin_trandafir_cv.pdf
           path: alin_trandafir_cv.pdf
-
-  dev:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@main
-
-      - name: Build PDF
-        run: |
-          docker run --mount src=$PWD,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic resume-dev.tex"
-          mv resume-dev.pdf alin_trandafir_dev.pdf
-
-      - name: Generate artifact for PDF
-        uses: actions/upload-artifact@main
-        with:
-          name: alin_trandafir_dev.pdf
-          path: alin_trandafir_dev.pdf
