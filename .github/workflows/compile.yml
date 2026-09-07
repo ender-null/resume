@@ -1,0 +1,87 @@
+name: Compile
+
+# Replaces the previous compile-tectonic.yml + compile-texlive.yml, which between them
+# ran 4 jobs and pulled ~5.7 GB of Docker images per push to produce two ~30 KB PDFs.
+#
+# Tectonic is kept over TeX Live: 94 MB image vs 2.74 GB, and it resolves packages
+# deterministically. (compile-texlive.yml was already disabled by hand on GitHub since
+# 2026-01-29 -- this makes that decision visible in the repo instead of only in the UI.)
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # One job, one image pull, both documents. A build matrix would remove the
+      # duplicated YAML but still pull the image twice, and for a sub-second compile
+      # the pull dominates the run.
+      #
+      # Note '&&', not ';'. The old workflow chained with ';' and so reported success
+      # even when a compile failed -- which is how a reference to a 'biber-mwe.tex'
+      # that has never existed in this repo survived: it errored on every single run,
+      # and every run was still green. There is no bibliography here, so no biber.
+      - name: Build PDFs
+        run: |
+          docker run --rm \
+            --mount src=$PWD,target=/usr/src/tex,type=bind \
+            dxjoke/tectonic-docker:0.15.0-alpine-biber \
+            /bin/sh -c "tectonic resume.tex && tectonic resume-spanish.tex"
+          mv resume.pdf alin_trandafir_cv_en.pdf
+          mv resume-spanish.pdf alin_trandafir_cv_es.pdf
+
+      - name: Upload English CV
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: alin_trandafir_cv_en
+          path: alin_trandafir_cv_en.pdf
+
+      - name: Upload Spanish CV
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: alin_trandafir_cv_es
+          path: alin_trandafir_cv_es.pdf
+
+  # Build artifacts expire after 90 days and need a GitHub login to download, which is
+  # useless for a document whose whole purpose is being handed to people without GitHub
+  # accounts. Tagging publishes a permanent, login-free URL; in particular
+  # .../releases/latest/download/alin_trandafir_cv_en.pdf always resolves to the newest
+  # tagged CV, so it is a stable link to put on a profile.
+  #
+  # Unaffected by '*.pdf' in .gitignore: this uploads via the API rather than committing.
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Build PDFs
+        run: |
+          docker run --rm \
+            --mount src=$PWD,target=/usr/src/tex,type=bind \
+            dxjoke/tectonic-docker:0.15.0-alpine-biber \
+            /bin/sh -c "tectonic resume.tex && tectonic resume-spanish.tex"
+          mv resume.pdf alin_trandafir_cv_en.pdf
+          mv resume-spanish.pdf alin_trandafir_cv_es.pdf
+
+      - name: Publish release
+        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3.0.3
+        with:
+          files: |
+            alin_trandafir_cv_en.pdf
+            alin_trandafir_cv_es.pdf
+          generate_release_notes: true

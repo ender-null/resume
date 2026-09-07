@@ -1,0 +1,18 @@
+# Both .tex files mixed tabs and 4-space indentation within the same construct
+# (e.g. \entry blocks and \baritem lines), and the divergence had been cloned into the
+# Spanish copy at identical line numbers. This keeps it from recurring.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{tex,cls,sty}]
+indent_style = tab
+indent_size = 4
+
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
