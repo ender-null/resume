@@ -1,168 +1,224 @@
 \documentclass[9pt]{developercv} % Default font size, values from 8-12pt are recommended
 
-\newcommand{\shortentry}[4]{%
-	\parbox[t]{0.175\textwidth}{#1}&\parbox[t]{0.825\textwidth}{%
-		\textbf{#2}\hfill{\footnotesize \textbf{\textcolor{black}{#3}}}\\[-2pt]#4%
-	}\\[-4pt]%
+\usepackage[english]{babel} % Correct hyphenation patterns for the document language
+
+% PDF metadata. hyperref otherwise writes these as EMPTY strings, and many ATS read
+% /Title and /Author first to pre-fill the candidate name. /Keywords is legitimate
+% metadata, not hidden body text -- do NOT put invisible keywords in the page content.
+\hypersetup{
+	pdftitle={Alin Trandafir -- Senior Full-Stack Developer -- CV},
+	pdfauthor={Alin Trandafir},
+	pdfsubject={Senior Full-Stack Developer -- TypeScript, React, Angular, React Native},
+	pdfkeywords={TypeScript, JavaScript, React, React Native, Angular, Next.js, Node.js,
+		Expo, EAS, Redux, RxJS, Firebase, Docker, Cypress, Jenkins, GitLab CI, CI/CD,
+		Java, Symfony, Stripe, MapBox, i18next, internationalization, i18n, l10n,
+		Google Cloud, GCP, REST, SaaS, MongoDB, MySQL, SQL, NoSQL, Firestore,
+		authentication, MFA, Agile, Scrum,
+		Full-Stack Developer, Frontend, Mobile, Founder, Zaragoza, Spain, Remote},
+	pdflang={en-GB},
 }
 
 \begin{document}
 
-\begin{minipage}[t]{0.45\textwidth} % Left column with your name and title, change the width as needed
+% Header is TWO columns, not three. The old three-column form interleaved the two
+% contact columns row-wise under pdfminer extraction, and its 0.27\textwidth cells
+% were too narrow to hold labelled values without overflowing.
+
+\newlength{\namewidth}
+\settowidth{\namewidth}{\HUGE\textbf{\MakeUppercase{Trandafir}}} % Size to the LONGER name
+
+\begin{minipage}[t]{0.40\textwidth} % Left column: name and title
 	\vspace{-\baselineskip} % Required for vertically aligning minipages
 
-	\colorbox{black}{{\HUGE\textcolor{white}{\textbf{\MakeUppercase{Alin}}}}} % First name
-
-	\colorbox{black}{{\HUGE\textcolor{white}{\textbf{\MakeUppercase{Trandafir}}}}} % Last name
+	% One box sized to the longer name, so both names share a width instead of forming
+	% a ragged staircase of two independently-sized boxes.
+	% NOTE: inside a minipage \textwidth is the MINIPAGE's width, which is why this
+	% needs an explicit \namewidth rather than a fraction of \textwidth.
+	\colorbox{cvink}{\parbox{\namewidth}{%
+		\HUGE\textcolor{white}{\textbf{\MakeUppercase{Alin}}}\\[2pt]
+		\HUGE\textcolor{white}{\textbf{\MakeUppercase{Trandafir}}}}}
 
 	\vspace{6pt} % Vertical whitespace
 
 	{\huge Senior Full-Stack Developer} % Career or current job title
 \end{minipage}
 \hfill % Automatic horizontal whitespace
-\begin{minipage}[t]{0.27\textwidth} % Center column with the first column of icons
+\begin{minipage}[t]{0.56\textwidth} % Right column: contact details, stacked
 	\vspace{-\baselineskip} % Required for vertically aligning minipages
 
+	% Text labels, not bare icons. The FontAwesome glyphs carry no text of their own, so
+	% what a parser sees depends on the build engine: under XeTeX (Tectonic, our CI)
+	% they extract as junk -- 'c end.works', '] alin-trandafir'. Labels make this
+	% engine-proof. Email needs no label (regex-detectable) and the profile URLs are
+	% domain-qualified, so they label themselves.
 	\icon{MapMarker}{12}{Zaragoza, Spain}\\
-	\icon{Phone}{12}{+34 653 751 742}\\
+	\icon{Phone}{12}{Phone: +34 653 751 742}\\
 	\icon{At}{12}{\href{mailto:alin\_trandafir@icloud.com}{alin\_trandafir@icloud.com}}\\
-\end{minipage}
-\hfill % Automatic horizontal whitespace
-\begin{minipage}[t]{0.27\textwidth} % Right column with the first column of icons
-	\vspace{-\baselineskip} % Required for vertically aligning minipages
-
-	\icon{Globe}{12}{\href{https://end.works}{end.works}}\\
-	\icon{Github}{12}{\href{https://github.com/ender-null}{ender-null}}\\
-	\icon{Linkedin}{12}{\href{https://linkedin.com/in/alin-trandafir}{alin-trandafir}}\\
+	\icon{Globe}{12}{Web: \href{https://end.works}{end.works}}\\
+	\icon{Github}{12}{\href{https://github.com/ender-null}{github.com/ender-null}}\\
+	\icon{Linkedin}{12}{\href{https://linkedin.com/in/alin-trandafir}{linkedin.com/in/alin-trandafir}}
 \end{minipage}
 
 \vspace{0.5cm} % Vertical whitespace
 
-\cvsect{Who Am I?}
+\cvsect{Professional Summary}
 
-\begin{minipage}[t]{0.4\textwidth} % Left column with the introduction text
-	\vspace{-\baselineskip} % Required for vertically aligning minipages
+% "Professional Summary" rather than "Who Am I?": ATS segment the document by matching
+% section headers against a dictionary. "Who Am I?" matches nothing in any of them.
 
-	\textbf{Senior full-stack developer} with \textasciitilde{}8 years of experience in \textbf{TypeScript}, \textbf{React}, \textbf{Angular}, and \textbf{React Native}. I've built production apps and scalable web platforms at large companies and products with millions of users.
-    \\
-    I'm comfortable \textbf{leading technical direction} and working \textbf{across the full stack} to deliver the best possible result. I love building software that \textbf{makes people's lives easier} and solves complex problems -- which is what led me to start building my own products.
-\end{minipage}
-\hfill % Automatic horizontal whitespace
-\begin{minipage}[t]{0.5\textwidth} % Right column with the skills bar chart
-	\vspace{-\baselineskip} % Required for vertically aligning minipages
+\textbf{Senior full-stack developer} with \textasciitilde{}8 years of experience in \textbf{TypeScript}, \textbf{React}, \textbf{Angular}, and \textbf{React Native}. I've built production apps and scalable web platforms at large companies, and I ship and operate my own: \textbf{Zierzo} and \textbf{LoveLust} are live on the App Store and Google Play through \textbf{The Lovelust Company, SL}, the company I founded to run them, with LoveLust reaching \textbf{16,000 monthly active users}.
+\\
+I'm comfortable \textbf{leading technical direction} and working \textbf{across the full stack} to deliver the best possible result. I love building software that \textbf{makes people's lives easier} and solves complex problems -- which is what led me to start building my own products.
 
-	\begin{barchart}{5.5}
-		\baritem{TypeScript / JavaScript}{100}
-		\baritem{React}{90}
-		\baritem{Angular}{90}
-        \baritem{React Native}{80}
-		\baritem{Node.js}{60}
-        \baritem{Docker}{60}
-	\end{barchart}
-\end{minipage}
+\cvsect{Technical Skills}
 
-\cvsect{Experience}
+% Every technology below is already evidenced elsewhere in this CV. Nothing here is a
+% claim the experience section does not support.
+
+\textbf{Languages:} TypeScript, JavaScript (ES6+), Java, PHP, HTML5, CSS3\\
+\textbf{Frontend:} React, Angular, Next.js, Redux, RxJS, state management, component libraries, responsive design\\
+\textbf{Mobile:} React Native, Expo, EAS, Cordova, App Store \& Google Play release management\\
+\textbf{Backend:} Node.js, REST APIs, Symfony\\
+\textbf{Databases:} MongoDB, MySQL, SQL, Firebase / Firestore\\
+\textbf{Cloud \& DevOps:} Google Cloud Platform (GCP), Docker, CI/CD, GitLab CI, Jenkins, Git\\
+\textbf{Testing \& Quality:} Cypress, unit testing, end-to-end testing, test coverage, code review\\
+\textbf{Practices:} Agile, Scrum, internationalization (i18n / l10n), authentication \& authorization, MFA, SaaS, mentoring
+
+\cvsect{Work Experience}
 
 \begin{entrylist}
+	% The Nov 2024 - May 2026 stretch is split out deliberately rather than folded into
+	% one "Freelance" block. A single undifferentiated freelance entry following a
+	% salaried role is read by default as "between jobs"; two entries show the actual
+	% arc -- built the products, got traction, incorporated on the back of it -- and the
+	% incorporation date then reads as a milestone instead of a start date.
 	\entry
-		{Nov 2024--Current}
-		{Full-Stack Developer}
-		{Freelance}
-		{Built and shipped \textbf{Zierzo} and \textbf{LoveLust}, two production mobile apps live on the \textbf{App Store and Google Play}, with secure storage, real-time features, analytics, and subscription monetization -- LoveLust reaching over \textbf{13,000 monthly active users}. Also deliver \textbf{websites for small local businesses}. Own full product lifecycle: \textbf{architecture}, \textbf{CI/CD}, \textbf{testing}, and store publishing workflows. \\
-        \texttt{React Native}\slashsep\texttt{Expo}\slashsep\texttt{TypeScript}\slashsep\texttt{RevenueCat}\slashsep\texttt{HealthKit/Health Connect}\slashsep\texttt{EAS}\slashsep\texttt{Firebase}\slashsep\texttt{i18next}}
+		{May 2026 -- Present}
+		{Founder \& Lead Engineer}
+		{The Lovelust Company, SL}
+		{Incorporated the company operating \textbf{LoveLust} and \textbf{Zierzo} after both reached sustained traction -- LoveLust at \textbf{16,000 monthly active users} on subscription monetization. Own \textbf{architecture}, release engineering, and App Store / Google Play operations across both products, alongside company finance, compliance, and vendor management. \\
+		\texttt{React Native}\slashsep\texttt{Expo}\slashsep\texttt{TypeScript}\slashsep\texttt{RevenueCat}\slashsep\texttt{HealthKit/Health Connect}\slashsep\texttt{EAS}\slashsep\texttt{Firebase}\slashsep\texttt{i18next}}
 	\entry
-		{Oct 2022--Nov 2024}
+		{Nov 2024 -- May 2026}
+		{Independent Software Developer}
+		{Self-employed}
+		{Designed, built, and launched \textbf{LoveLust} and \textbf{Zierzo} from zero to the \textbf{App Store and Google Play} -- secure storage, real-time features, analytics, and subscription billing -- owning the full product lifecycle including \textbf{CI/CD}, \textbf{testing}, and store publishing. Traction across both products led to incorporating \textbf{The Lovelust Company, SL} in May 2026. Also delivered \textbf{websites for small local businesses}. \\
+		\texttt{React Native}\slashsep\texttt{Expo}\slashsep\texttt{TypeScript}\slashsep\texttt{RevenueCat}\slashsep\texttt{EAS}\slashsep\texttt{Firebase}\slashsep\texttt{i18next}}
+	\entry
+		{Oct 2022 -- Nov 2024}
 		{Software Engineer}
 		{Aimsun}
 		{Owned core modules of a \textbf{SaaS platform} end to end -- authentication, accounts, subscriptions, licensing, and MFA -- within a cross-functional team. Built internal tooling for \textbf{billing}, \textbf{permissions}, and user administration. Contributed to shared auth libraries and real-time data visualization interfaces. \\
-        \texttt{React}\slashsep\texttt{TypeScript}\slashsep\texttt{Next.js}\slashsep\texttt{i18next}\slashsep\texttt{MapBox}\slashsep\texttt{GitLab CI/CD}\slashsep\texttt{Cypress}}
+		\texttt{React}\slashsep\texttt{TypeScript}\slashsep\texttt{Next.js}\slashsep\texttt{i18next}\slashsep\texttt{MapBox}\slashsep\texttt{GitLab CI/CD}\slashsep\texttt{Cypress}}
 	\entry
-		{Dec 2021--Oct 2022}
+		{Dec 2021 -- Oct 2022}
 		{Software Developer}
 		{Viewnext}
 		{Developed a \textbf{booking platform for EV charging stations} for a major energy company -- users could browse stations on an interactive map and manage bookings. Worked on a \textbf{shared component library} with strict quality requirements: near-full test coverage and zero code smells. Mentored junior developers. \\
-        \texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{RxJS}\slashsep\texttt{Jenkins}\slashsep\texttt{GitLab CI/CD}}
-    \entry
-		{May 2021--Dec 2021}
+		\texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{RxJS}\slashsep\texttt{Jenkins}\slashsep\texttt{GitLab CI/CD}}
+	\entry
+		{May 2021 -- Dec 2021}
 		{Software Developer}
 		{adidas}
 		{Replaced legacy internal tooling with a modern \textbf{content editor}, cutting editorial friction significantly. Introduced \textbf{internationalization} and streamlined translation workflows across the platform. Worked in an Agile environment alongside design, content, and engineering teams. \\
-        \texttt{React}\slashsep\texttt{TypeScript}\slashsep\texttt{Redux}\slashsep\texttt{i18n}}
-    \entry
-		{Dec 2019--May 2021}
+		\texttt{React}\slashsep\texttt{TypeScript}\slashsep\texttt{Redux}\slashsep\texttt{i18n}}
+	\entry
+		{Dec 2019 -- May 2021}
 		{Software Developer}
 		{Telefónica / Eleven Paths}
 		{Drove migration of a governance and risk platform to a modern \textbf{Angular} architecture. Delivered enterprise features, improved UX consistency, and maintained backend services for reporting and risk modeling. \\
-        \texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{RxJS}\slashsep\texttt{Java}\slashsep\texttt{i18n}}
-    \entry
-		{Oct 2017--Dec 2019}
+		\texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{RxJS}\slashsep\texttt{Java}\slashsep\texttt{i18n}}
+	\entry
+		{Oct 2017 -- Dec 2019}
 		{Software Developer}
 		{Ingenia Sistemas Avanzados para el Transporte}
 		{Built two core products for private bus companies: a \textbf{bus ticket sales platform customizable per operator} with discounts, multiple payment methods, and iframe embedding; and an \textbf{internal back-office tool} for managing stations, lines, drivers, and vehicles with \textbf{Google Maps} route generation. Also contributed to a real-time arrivals mobile app. \\
-        \texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{RxJS}\slashsep\texttt{Cordova}\slashsep\texttt{Stripe}\slashsep\texttt{i18n}}
-    \entry
-		{Mar 2017--Sep 2017}
+		\texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{RxJS}\slashsep\texttt{Cordova}\slashsep\texttt{Stripe}\slashsep\texttt{i18n}}
+	\entry
+		{Mar 2017 -- Sep 2017}
 		{Software Developer}
 		{Rananegra}
 		{Built dynamic websites using a modular CMS and developed custom interactive components. Created an email automation tool with subscription billing. \\
-        \texttt{Symfony}\slashsep\texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{Stripe}}
+		\texttt{Symfony}\slashsep\texttt{Angular}\slashsep\texttt{TypeScript}\slashsep\texttt{Stripe}}
+\end{entrylist}
+
+\cvsect{Certifications}
+
+% Split out from Education and placed first: these are the most RECENT and most
+% relevant credentials, and they were previously listed last, below two 2012-2016
+% degrees, in a list whose order ran 2014, 2012, 2025, 2025 -- no detectable ordering
+% principle on a document whose job is to demonstrate care.
+%
+% Issuers corrected. "Formacion San Miguel" and "Kings Corner English School" are the
+% academies that PREPARED you; they are not the certifying bodies. Crediting the local
+% academy makes a globally-recognised credential read as a local course certificate.
+
+\begin{entrylist}
+	\shortentry
+		{2025}
+		{Google Cloud Professional Cloud Architect}
+		{Google Cloud}
+		{}
+
+	\shortentry
+		{2025}
+		{Oxford Test of English -- Advanced (C1)}
+		{Oxford University Press}
+		{}
 \end{entrylist}
 
 \cvsect{Education}
 
+% Degree titles corrected. DAM is a Ciclo Formativo de Grado Superior -> "Tecnico
+% Superior"; SMR is a Ciclo Formativo de Grado Medio -> "Tecnico". In Spain "Grado"
+% means a university bachelor's degree, so the previous wording claimed a qualification
+% you do not hold -- something any Spanish recruiter spots immediately. The English
+% rendering below uses the EQF level, which is accurate and internationally legible
+% without overstating.
+
 \begin{entrylist}
 	\shortentry
 		{2014 -- 2016}
-		{Multiplatform Applications Degree}
-		{CPIFP Los Enlaces}
+		{Higher National Diploma in Multiplatform Application Development}
+		{CPIFP Los Enlaces (CFGS, EQF 5)}
 		{}
 
-    \shortentry
+	\shortentry
 		{2012 -- 2014}
-		{Computer Systems and Networking Degree}
-		{CPIFP Los Enlaces}
-		{}
-
-    \shortentry
-		{2025}
-		{Google Cloud Professional Cloud Architect}
-		{Formación San Miguel}
-		{}
-
-    \shortentry
-		{2025}
-		{Oxford Test of English -- Advanced (C1)}
-		{Kings Corner English School}
+		{National Diploma in Computer Systems and Networking}
+		{CPIFP Los Enlaces (CFGM, EQF 4)}
 		{}
 \end{entrylist}
 
-\begin{minipage}[t]{0.3\textwidth} % Left column width
-	\vspace{-\baselineskip} % Required for vertically aligning minipages
+% Footer: TWO columns, not three. The old three-column 0.3\textwidth layout put a
+% paragraph of prose into a ~48mm measure, and with hyphenation suppressed that
+% fragments under text extraction (the volunteer block came out as ~15 loose scraps).
+% Wider columns fix it at the source rather than by re-enabling word-breaking.
+%
+% The old "Soft Skills" column is gone deliberately. It listed Technical Leadership,
+% Cross-functional Collaboration, Agile/Scrum, International Teams, Remote Work,
+% Project Management, Problem Solving -- each either unfalsifiable, universal, or a
+% circumstance rather than a skill. It was also the ONLY heading in the document
+% matching "SKILLS", so an ATS skills classifier extracted it and found no technology
+% at all. Its substantive items (Agile/Scrum, mentoring, leadership) now live in
+% Technical Skills > Practices, attached to evidence.
 
-	\cvsect{Soft Skills}
-	Technical Leadership\\
-	Cross-functional Collaboration\\
-	Agile / Scrum\\
-	International Teams\\
-	Remote Work\\
-	Project Management\\
-	Problem Solving
-\end{minipage}
-\hfill % Automatic horizontal whitespace
-\begin{minipage}[t]{0.3\textwidth} % Center column width
+\begin{minipage}[t]{0.42\textwidth} % Left column
 	\vspace{-\baselineskip} % Required for vertically aligning minipages
 
 	\cvsect{Languages}
 	\textbf{Spanish} -- native\\
-	\textbf{English} -- C1\\
-	\textbf{Romanian} -- native
+	\textbf{Romanian} -- native (bilingual upbringing)\\
+	\textbf{English} -- C1 (Oxford Test of English, 2025)
+	% Natives grouped so "trilingual" reads as one fact rather than a footnote, and the
+	% C1 carries its certification inline -- self-assessed CEFR levels get discounted.
 \end{minipage}
 \hfill % Automatic horizontal whitespace
-\begin{minipage}[t]{0.3\textwidth} % Right column width
+\begin{minipage}[t]{0.52\textwidth} % Right column
 	\vspace{-\baselineskip} % Required for vertically aligning minipages
 
-	\cvsect{Non-profit}
-	Founded and led \textbf{Asociación Juvenil Brovrashgka}, focused on \textbf{anime and Japanese pop culture}. Organized events, workshops, and community activities. Managed \textbf{project planning}, \textbf{budgets}, \textbf{volunteers}, and event logistics.
+	\cvsect{Volunteer Experience}
+	\textbf{Founder and President}, Asociación Juvenil Brovrashgka -- a registered non-profit youth cultural association promoting Japanese culture and creative community. Ran the annual \textbf{budget} and grant applications, coordinated \textbf{volunteers}, and produced recurring public events and workshops.
 \end{minipage}
 
 \end{document}
