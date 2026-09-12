@@ -2,65 +2,24 @@
 
 \usepackage[english]{babel} % Correct hyphenation patterns for the document language
 
+\input{identity} % Name, contact details and the shared technology keyword list
+
 % PDF metadata. hyperref otherwise writes these as EMPTY strings, and many ATS read
-% /Title and /Author first to pre-fill the candidate name. /Keywords is legitimate
-% metadata, not hidden body text -- do NOT put invisible keywords in the page content.
+% /Title and /Author first to pre-fill the candidate name.
 \hypersetup{
-	pdftitle={Alin Trandafir -- Senior Full-Stack Developer -- CV},
-	pdfauthor={Alin Trandafir},
+	pdftitle={\cvfirstname\ \cvlastname\ -- Senior Full-Stack Developer -- CV},
+	pdfauthor={\cvfirstname\ \cvlastname},
 	pdfsubject={Senior Full-Stack Developer -- TypeScript, React, Angular, React Native},
-	pdfkeywords={TypeScript, JavaScript, React, React Native, Angular, Next.js, Node.js,
-		Expo, EAS, Redux, RxJS, Firebase, Docker, Cypress, Jenkins, GitLab CI, CI/CD,
-		Java, Symfony, Stripe, MapBox, i18next, internationalization, i18n, l10n,
-		Google Cloud, GCP, REST, SaaS, MongoDB, MySQL, SQL, NoSQL, Firestore,
-		Keychain, Keystore, encryption, CEO, Co-founder,
-		authentication, MFA, Agile, Scrum,
-		Full-Stack Developer, Frontend, Mobile, Founder, Zaragoza, Spain, Remote},
+	pdfkeywords={\cvkeywords, internationalization, encryption, authentication,
+		Co-founder, Founder, Full-Stack Developer, Mobile, Spain, Remote},
 	pdflang={en-GB},
 }
 
 \begin{document}
 
-% Header is TWO columns, not three. The old three-column form interleaved the two
-% contact columns row-wise under pdfminer extraction, and its 0.27\textwidth cells
-% were too narrow to hold labelled values without overflowing.
-
-\newlength{\namewidth}
-\settowidth{\namewidth}{\HUGE\textbf{\MakeUppercase{Trandafir}}} % Size to the LONGER name
-
-\begin{minipage}[t]{0.40\textwidth} % Left column: name and title
-	\vspace{-\baselineskip} % Required for vertically aligning minipages
-
-	% One box sized to the longer name, so both names share a width instead of forming
-	% a ragged staircase of two independently-sized boxes.
-	% NOTE: inside a minipage \textwidth is the MINIPAGE's width, which is why this
-	% needs an explicit \namewidth rather than a fraction of \textwidth.
-	\colorbox{cvink}{\parbox{\namewidth}{%
-		\HUGE\textcolor{white}{\textbf{\MakeUppercase{Alin}}}\\[2pt]
-		\HUGE\textcolor{white}{\textbf{\MakeUppercase{Trandafir}}}}}
-
-	\vspace{6pt} % Vertical whitespace
-
-	{\huge Senior Full-Stack Developer} % Career or current job title
-\end{minipage}
-\hfill % Automatic horizontal whitespace
-\begin{minipage}[t]{0.56\textwidth} % Right column: contact details, stacked
-	\vspace{-\baselineskip} % Required for vertically aligning minipages
-
-	% Text labels, not bare icons. The FontAwesome glyphs carry no text of their own, so
-	% what a parser sees depends on the build engine: under XeTeX (Tectonic, our CI)
-	% they extract as junk -- 'c end.works', '] alin-trandafir'. Labels make this
-	% engine-proof. Email needs no label (regex-detectable) and the profile URLs are
-	% domain-qualified, so they label themselves.
-	\icon{MapMarker}{12}{Zaragoza, Spain}\\
-	\icon{Phone}{12}{Phone: +34 653 751 742}\\
-	\icon{At}{12}{\href{mailto:alin\_trandafir@icloud.com}{alin\_trandafir@icloud.com}}\\
-	\icon{Globe}{12}{Web: \href{https://end.works}{end.works}}\\
-	\icon{Github}{12}{\href{https://github.com/ender-null}{github.com/ender-null}}\\
-	\icon{Linkedin}{12}{\href{https://linkedin.com/in/alin-trandafir}{linkedin.com/in/alin-trandafir}}
-\end{minipage}
-
-\vspace{0.5cm} % Vertical whitespace
+% Name block, job title and contact rows. Layout lives in developercv.cls and the
+% values in identity.tex; only the three localised strings are given here.
+\cvheader{Senior Full-Stack Developer}{Zaragoza, Spain}{Phone}
 
 \cvsect{Professional Summary}
 

@@ -6,5 +6,4 @@
 *.out
 *.pdf
 *.synctex.gz
-*.toc
-build/
+*.xdv

@@ -1,0 +1,33 @@
+% Personal data, shared by resume.tex (EN) and curriculum.tex (ES).
+%
+% Everything here is language-independent, so a changed phone number, handle or
+% keyword is edited ONCE instead of once per language -- the two documents used to
+% carry byte-identical copies of all of it, which is exactly the kind of duplication
+% that goes stale in one file only.
+%
+% The link macros wrap the whole \href rather than just the URL on purpose:
+% hyperref reads its URL argument under modified catcodes, so a macro placed inside
+% \href{...} is not reliably expanded. Written this way, \href always sees literal
+% text. The '\_' escapes are likewise required at definition time -- the macro body
+% is tokenised when it is defined, before hyperref can adjust anything.
+
+\newcommand{\cvfirstname}{Alin}
+\newcommand{\cvlastname}{Trandafir}
+
+\newcommand{\cvphone}{+34 653 751 742}
+\newcommand{\cvemail}{\href{mailto:alin\_trandafir@icloud.com}{alin\_trandafir@icloud.com}}
+\newcommand{\cvweb}{\href{https://end.works}{end.works}}
+\newcommand{\cvgithub}{\href{https://github.com/ender-null}{github.com/ender-null}}
+\newcommand{\cvlinkedin}{\href{https://linkedin.com/in/alin-trandafir}{linkedin.com/in/alin-trandafir}}
+
+% Technology keywords for PDF /Keywords metadata. Proper nouns only, so this list is
+% identical in both languages; each document appends its own translated terms.
+% Legitimate metadata, not hidden body text -- do NOT put invisible keywords in the
+% page content.
+\newcommand{\cvkeywords}{%
+	TypeScript, JavaScript, React, React Native, Angular, Next.js, Node.js,
+	Expo, EAS, Redux, RxJS, Firebase, Docker, Cypress, Jenkins, GitLab CI, CI/CD,
+	Java, Symfony, Stripe, MapBox, i18next, i18n, l10n,
+	Google Cloud, GCP, REST, SaaS, MongoDB, MySQL, SQL, NoSQL, Firestore,
+	Keychain, Keystore, MFA, Agile, Scrum, CEO, Frontend, Zaragoza%
+}

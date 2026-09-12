@@ -27,38 +27,42 @@ jobs:
       # duplicated YAML but still pull the image twice, and for a sub-second compile
       # the pull dominates the run.
       #
-      # Note '&&', not ';'. The old workflow chained with ';' and so reported success
-      # even when a compile failed -- which is how a reference to a 'biber-mwe.tex'
-      # that has never existed in this repo survived: it errored on every single run,
-      # and every run was still green. There is no bibliography here, so no biber.
+      # Delegating to `make docker` keeps the tectonic invocation and the output
+      # filenames in the Makefile only. They used to be spelled out here as well --
+      # in two separate jobs -- so renaming an output meant editing three copies.
+      #
+      # The Makefile chains the two compiles with '&&', not ';'. The old workflow used
+      # ';' and so reported success even when a compile failed -- which is how a
+      # reference to a 'biber-mwe.tex' that has never existed in this repo survived: it
+      # errored on every single run, and every run was still green. There is no
+      # bibliography here, so no biber.
       - name: Build PDFs
-        run: |
-          docker run --rm \
-            --mount src=$PWD,target=/usr/src/tex,type=bind \
-            dxjoke/tectonic-docker:0.15.0-alpine-biber \
-            /bin/sh -c "tectonic resume.tex && tectonic resume-spanish.tex"
-          mv resume.pdf alin_trandafir_cv_en.pdf
-          mv resume-spanish.pdf alin_trandafir_cv_es.pdf
+        run: make docker
 
       - name: Upload English CV
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: alin_trandafir_cv_en
-          path: alin_trandafir_cv_en.pdf
+          name: alin_trandafir_resume
+          path: alin_trandafir_resume.pdf
 
       - name: Upload Spanish CV
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: alin_trandafir_cv_es
-          path: alin_trandafir_cv_es.pdf
+          name: alin_trandafir_curriculum
+          path: alin_trandafir_curriculum.pdf
 
   # Build artifacts expire after 90 days and need a GitHub login to download, which is
   # useless for a document whose whole purpose is being handed to people without GitHub
   # accounts. Tagging publishes a permanent, login-free URL; in particular
-  # .../releases/latest/download/alin_trandafir_cv_en.pdf always resolves to the newest
+  # .../releases/latest/download/alin_trandafir_resume.pdf always resolves to the newest
   # tagged CV, so it is a stable link to put on a profile.
   #
   # Unaffected by '*.pdf' in .gitignore: this uploads via the API rather than committing.
+  #
+  # This job downloads what `build` already produced instead of compiling a second
+  # time. It previously repeated the checkout and the full docker build, so every
+  # tagged release pulled the image twice and typeset both documents twice -- and
+  # nothing guaranteed the released PDFs were the ones the build job had tested.
   release:
     needs: build
     if: startsWith(github.ref, 'refs/tags/v')
@@ -67,21 +71,16 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - name: Build PDFs
-        run: |
-          docker run --rm \
-            --mount src=$PWD,target=/usr/src/tex,type=bind \
-            dxjoke/tectonic-docker:0.15.0-alpine-biber \
-            /bin/sh -c "tectonic resume.tex && tectonic resume-spanish.tex"
-          mv resume.pdf alin_trandafir_cv_en.pdf
-          mv resume-spanish.pdf alin_trandafir_cv_es.pdf
+      - name: Download built PDFs
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          pattern: alin_trandafir_*
+          merge-multiple: true
 
       - name: Publish release
         uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3.0.3
         with:
           files: |
-            alin_trandafir_cv_en.pdf
-            alin_trandafir_cv_es.pdf
+            alin_trandafir_resume.pdf
+            alin_trandafir_curriculum.pdf
           generate_release_notes: true

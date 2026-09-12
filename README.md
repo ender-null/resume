@@ -4,10 +4,14 @@ Two CVs built from one LaTeX class:
 
 | Source | Output | Language |
 | --- | --- | --- |
-| `resume.tex` | `alin_trandafir_cv_en.pdf` | English |
-| `resume-spanish.tex` | `alin_trandafir_cv_es.pdf` | Spanish |
+| `resume.tex` | `alin_trandafir_resume.pdf` | English |
+| `curriculum.tex` | `alin_trandafir_curriculum.pdf` | Spanish |
 
-Both use `developercv.cls` (bundled) — the [Developer CV](https://www.latextemplates.com)
+Both pull layout from `developercv.cls` and personal data from `identity.tex` — name,
+contact details and the shared technology keyword list, so a changed phone number or
+handle is edited once rather than once per language.
+
+`developercv.cls` (bundled) is the [Developer CV](https://www.latextemplates.com)
 class by Jan Vorisek, after a template by Jan Küster. MIT licensed.
 
 ## Building
@@ -26,5 +30,5 @@ Every push to `main` builds both PDFs as workflow artifacts. Pushing a `v*` tag 
 publishes them to a GitHub Release, which gives a permanent link that needs no login:
 
 ```
-https://github.com/ender-null/resume/releases/latest/download/alin_trandafir_cv_en.pdf
+https://github.com/ender-null/resume/releases/latest/download/alin_trandafir_resume.pdf
 ```

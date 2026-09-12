@@ -4,19 +4,16 @@
 % template's markup. Without babel this document was hyphenated with ENGLISH patterns.
 \usepackage[spanish,es-noquoting]{babel}
 
+\input{identity} % Nombre, datos de contacto y lista compartida de palabras clave
+
 % Metadata. pdflang=es-ES also gives parsers the signal to load a Spanish month table
 % -- "Dic" is the one month abbreviation here that an English table does not resolve.
 \hypersetup{
-	pdftitle={Alin Trandafir -- Desarrollador Full-Stack Senior -- CV},
-	pdfauthor={Alin Trandafir},
+	pdftitle={\cvfirstname\ \cvlastname\ -- Desarrollador Full-Stack Senior -- CV},
+	pdfauthor={\cvfirstname\ \cvlastname},
 	pdfsubject={Desarrollador Full-Stack Senior -- TypeScript, React, Angular, React Native},
-	pdfkeywords={TypeScript, JavaScript, React, React Native, Angular, Next.js, Node.js,
-		Expo, EAS, Redux, RxJS, Firebase, Docker, Cypress, Jenkins, GitLab CI, CI/CD,
-		Java, Symfony, Stripe, MapBox, i18next, internacionalizacion, i18n, l10n,
-		Google Cloud, GCP, REST, SaaS, MongoDB, MySQL, SQL, NoSQL, Firestore,
-		Keychain, Keystore, cifrado, CEO, Cofundador,
-		autenticacion, MFA, Agile, Scrum,
-		Desarrollador Full-Stack, Frontend, Movil, Fundador, Zaragoza, Espana, Remoto},
+	pdfkeywords={\cvkeywords, internacionalizacion, cifrado, autenticacion,
+		Cofundador, Fundador, Desarrollador Full-Stack, Movil, Espana, Remoto},
 	pdflang={es-ES},
 }
 
@@ -26,33 +23,10 @@
 
 \begin{document}
 
-\newlength{\namewidth}
-\settowidth{\namewidth}{\HUGE\textbf{\MakeUppercase{Trandafir}}} % Size to the LONGER name
-
-\begin{minipage}[t]{0.40\textwidth} % Left column: name and title
-	\vspace{-\baselineskip} % Required for vertically aligning minipages
-
-	\colorbox{cvink}{\parbox{\namewidth}{%
-		\HUGE\textcolor{white}{\textbf{\MakeUppercase{Alin}}}\\[2pt]
-		\HUGE\textcolor{white}{\textbf{\MakeUppercase{Trandafir}}}}}
-
-	\vspace{6pt} % Vertical whitespace
-
-	{\huge\raggedright Desarrollador Full-Stack\\Senior\par} % Career or current job title
-\end{minipage}
-\hfill % Automatic horizontal whitespace
-\begin{minipage}[t]{0.56\textwidth} % Right column: contact details, stacked
-	\vspace{-\baselineskip} % Required for vertically aligning minipages
-
-	\icon{MapMarker}{12}{Zaragoza, España}\\
-	\icon{Phone}{12}{Teléfono: +34 653 751 742}\\
-	\icon{At}{12}{\href{mailto:alin\_trandafir@icloud.com}{alin\_trandafir@icloud.com}}\\
-	\icon{Globe}{12}{Web: \href{https://end.works}{end.works}}\\
-	\icon{Github}{12}{\href{https://github.com/ender-null}{github.com/ender-null}}\\
-	\icon{Linkedin}{12}{\href{https://linkedin.com/in/alin-trandafir}{linkedin.com/in/alin-trandafir}}
-\end{minipage}
-
-\vspace{0.5cm} % Vertical whitespace
+% Bloque de nombre, puesto y datos de contacto. La maquetación está en developercv.cls
+% y los valores en identity.tex; aquí solo van las tres cadenas traducidas.
+% El puesto se parte en dos líneas a mano: no cabe en una sola en la columna izquierda.
+\cvheader{Desarrollador Full-Stack\\Senior}{Zaragoza, España}{Teléfono}
 
 \cvsect{Perfil Profesional}
 
@@ -64,7 +38,6 @@
 Me siento cómodo \textbf{liderando la dirección técnica} y trabajando \textbf{en cualquier parte del stack} para obtener el mejor resultado posible. Me apasiona crear software que \textbf{facilite la vida de las personas} y resuelva problemas complejos -- eso es lo que me llevó a desarrollar mis propios productos.
 
 \cvsect{Competencias Técnicas}
-
 
 \textbf{Lenguajes:} TypeScript, JavaScript (ES6+), Java, PHP, HTML5, CSS3\\
 \textbf{Frontend:} React, Angular, Next.js, Redux, RxJS, gestión de estado, librerías de componentes, diseño responsive\\

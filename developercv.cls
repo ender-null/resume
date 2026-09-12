@@ -15,6 +15,14 @@
 % The MIT License (see included LICENSE file)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Layout only. Personal data lives in identity.tex; document content in
+% resume.tex (EN) and curriculum.tex (ES).
+%
+% Package order below is deliberate: geometry -> fonts -> colour -> components,
+% with hyperref LAST. hyperref patches internals of packages loaded before it and
+% needs to see the final page geometry; it was previously loaded first, before
+% geometry had run.
 
 %----------------------------------------------------------------------------------------
 %	CLASS CONFIGURATION
@@ -28,17 +36,11 @@
 
 \LoadClass{extarticle} % Load the base class
 
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
-
 \setlength{\parindent}{0mm} % Suppress paragraph indentation
-
-\usepackage[hidelinks]{hyperref} % Required for links but hide the default boxes around links
 
 \pagestyle{empty} % Suppress all headers or footers
 
-\usepackage{moresize} % Provides more font size commands (\HUGE and \ssmall)
+\usepackage{moresize} % Provides more font size commands (\HUGE)
 
 %----------------------------------------------------------------------------------------
 %	PAGE LAYOUT
@@ -46,15 +48,15 @@
 
 \usepackage{geometry} % Required for adjusting page dimensions and margins
 
+% No headheight/headsep/footskip here: \pagestyle{empty} means there is no header or
+% footer for them to size, and without geometry's includehead/includefoot they do not
+% enter the text-block calculation either, so they were inert.
 \geometry{
 	paper=a4paper, % Paper size, change to letterpaper for US letter size
 	top=1.75cm, % Top margin
 	bottom=1.75cm, % Bottom margin
 	left=2.4cm, % Left margin
 	right=2.4cm, % Right margin
-	headheight=0.75cm, % Header height
-	footskip=1cm, % Space from the bottom margin to the baseline of the footer
-	headsep=0.5cm, % Space from the top margin to the baseline of the header
 	%showframe, % Uncomment to show how the type block is set on the page
 }
 
@@ -78,13 +80,11 @@
 \exhyphenpenalty=10000
 
 % Ragged right is REQUIRED alongside the above, not a style preference. With
-% hyphenation off, justified text in the narrow (0.3\textwidth) columns can only
-% reach the right margin by stretching inter-word spaces enormously -- and a text
-% extractor reads a wide enough gap as a COLUMN BOUNDARY, which scrambles the
-% affected block into fragments. Ragged right is also the CV convention.
+% hyphenation off, justified text in the narrow columns can only reach the right
+% margin by stretching inter-word spaces enormously -- and a text extractor reads a
+% wide enough gap as a COLUMN BOUNDARY, which scrambles the affected block into
+% fragments. Ragged right is also the CV convention.
 \raggedright
-
-%------------------------------------------------
 
 \usepackage{fontawesome5} % Required for FontAwesome icons
 
@@ -94,9 +94,9 @@
 
 \usepackage{xcolor}
 
-% Monochrome by design. Single knob: change cvaccent and every section header, icon
-% chip and chart bar follows it.
-\definecolor{cvaccent}{HTML}{000000} % Black -- section headers, icons, bars
+% Monochrome by design. Single knob: change cvaccent and every section header and
+% icon chip follows it.
+\definecolor{cvaccent}{HTML}{000000} % Black -- section headers, icons
 \definecolor{cvink}{HTML}{1A1A1A}    % Near-black -- the name block
 
 % The only grey. Used solely for the right-aligned employer/institution qualifier, so
@@ -105,19 +105,9 @@
 % a photocopier or a greyscale print. Set to 000000 for pure black.
 \definecolor{cvmuted}{HTML}{595959}
 
-% Command to output an icon in a black square box with text to the right
-\newcommand{\icon}[3]{% The first parameter is the FontAwesome icon name, the second is the box size and the third is the text
-	\vcenteredhbox{\colorbox{cvaccent}{\makebox(#2, #2){\textcolor{white}{\large\csname fa#1\endcsname}}}}% Icon and box
-	\hspace{0.2cm}% Whitespace
-	\vcenteredhbox{\textcolor{black}{#3}}% Text
-}
-
 %----------------------------------------------------------------------------------------
-%	GRAPHICS DEFINITIONS
-%---------------------------------------------------------------------------------------- 
-
-\usepackage{tikz} % Required for creating the plots
-\tikzset{x=1cm, y=1cm} % Default TikZ units
+%	COMPONENTS
+%----------------------------------------------------------------------------------------
 
 % Command to vertically center adjacent content
 \newcommand{\vcenteredhbox}[1]{% The only parameter is for the content to center
@@ -126,50 +116,72 @@
 	\endgroup%
 }
 
-%----------------------------------------------------------------------------------------
-%	CHARTS
-%---------------------------------------------------------------------------------------- 
-
-\newcounter{barcount}
-
-% Environment to hold a new bar chart
-\newenvironment{barchart}[1]{ % The only parameter is the maximum bar width, in cm
-	\newcommand{\barwidth}{0.35} % Bar width (i.e. height when horizontal)
-	\newcommand{\barsep}{0.2} % Vertical whitespace between the horizontal bars
-	
-	% Command to add a bar to the bar chart
-	\newcommand{\baritem}[2]{ % The first argument is the bar label and the second is the percentage the current bar should take up of the total width
-		\pgfmathparse{##2}
-		\let\perc\pgfmathresult
-		
-		\pgfmathparse{#1}
-		\let\barsize\pgfmathresult
-		
-		\pgfmathparse{\barsize*##2/100}
-		\let\barone\pgfmathresult
-		
-		\pgfmathparse{(\barwidth*\thebarcount)+(\barsep*\thebarcount)}
-		\let\barx\pgfmathresult
-		
-		\filldraw[fill=cvaccent, draw=none] (0,-\barx) rectangle (\barone,-\barx-\barwidth);
-		
-		\node [label=180:\colorbox{cvaccent}{\textcolor{white}{##1}}] at (0,-\barx-0.175) {};
-		\addtocounter{barcount}{1}
-	}
-	\begin{tikzpicture}
-		\setcounter{barcount}{0}
-}{
-	\end{tikzpicture}
+% Command to output an icon in a black square box with text to the right
+\newcommand{\icon}[3]{% The first parameter is the FontAwesome icon name, the second is the box size and the third is the text
+	\vcenteredhbox{\colorbox{cvaccent}{\makebox(#2, #2){\textcolor{white}{\large\csname fa#1\endcsname}}}}% Icon and box
+	\hspace{0.2cm}% Whitespace
+	\vcenteredhbox{\textcolor{black}{#3}}% Text
 }
-
-%----------------------------------------------------------------------------------------
-%	CUSTOM SECTIONS
-%----------------------------------------------------------------------------------------
 
 % Command to output section title headings
 \newcommand{\cvsect}[1]{% The only parameter is the section text
 	\vspace{\baselineskip} % Whitespace before the section title
 	\colorbox{cvaccent}{\textcolor{white}{\MakeUppercase{\textbf{#1}}}}\\% Section title
+}
+
+% Command to output a separator slash between lists, e.g. '  /  '
+\newcommand{\slashsep}{\hspace{3mm}/\hspace{3mm}}
+
+%----------------------------------------------------------------------------------------
+%	HEADER
+%----------------------------------------------------------------------------------------
+
+% Header is TWO columns, not three. The old three-column form interleaved the two
+% contact columns row-wise under pdfminer extraction, and its 0.27\textwidth cells
+% were too narrow to hold labelled values without overflowing.
+%
+% Contact rows carry text labels, not bare icons. The FontAwesome glyphs hold no text
+% of their own, so what a parser sees depends on the build engine: under XeTeX
+% (Tectonic, our CI) they extract as junk -- 'c end.works', '] alin-trandafir'. Labels
+% make this engine-proof. Email needs no label (regex-detectable) and the profile URLs
+% are domain-qualified, so they label themselves.
+%
+% #1 job title  #2 location  #3 label for the phone row
+% Those three are the ONLY parts that differ between the two languages; the values
+% themselves come from identity.tex, so a changed phone number or handle is edited
+% once rather than once per language.
+\newlength{\namewidth}
+
+\newcommand{\cvheader}[3]{%
+	% One box sized to the longer name, so both names share a width instead of forming
+	% a ragged staircase of two independently-sized boxes.
+	% NOTE: inside a minipage \textwidth is the MINIPAGE's width, which is why this
+	% needs an explicit \namewidth rather than a fraction of \textwidth.
+	\settowidth{\namewidth}{\HUGE\textbf{\MakeUppercase{\cvlastname}}}% Size to the LONGER name
+	\begin{minipage}[t]{0.40\textwidth}% Left column: name and title
+		\vspace{-\baselineskip}% Required for vertically aligning minipages
+
+		\colorbox{cvink}{\parbox{\namewidth}{%
+			\HUGE\textcolor{white}{\textbf{\MakeUppercase{\cvfirstname}}}\\[2pt]
+			\HUGE\textcolor{white}{\textbf{\MakeUppercase{\cvlastname}}}}}
+
+		\vspace{6pt}% Vertical whitespace
+
+		{\huge #1\par}% Career or current job title
+	\end{minipage}%
+	\hfill% Automatic horizontal whitespace
+	\begin{minipage}[t]{0.56\textwidth}% Right column: contact details, stacked
+		\vspace{-\baselineskip}% Required for vertically aligning minipages
+
+		\icon{MapMarker}{12}{#2}\\
+		\icon{Phone}{12}{#3: \cvphone}\\
+		\icon{At}{12}{\cvemail}\\
+		\icon{Globe}{12}{Web: \cvweb}\\
+		\icon{Github}{12}{\cvgithub}\\
+		\icon{Linkedin}{12}{\cvlinkedin}
+	\end{minipage}
+
+	\vspace{0.5cm}% Vertical whitespace
 }
 
 %----------------------------------------------------------------------------------------
@@ -221,5 +233,8 @@
 % three detached blocks, with the institutions ejected past later sections entirely.
 \newcommand{\shortentry}[4]{\cv@entry{#1}{#2}{#3}{#4}{\\[-2pt]}{\\[-4pt]}{ \textemdash\ }}
 
-% Command to output a separator slash between lists, e.g. '  /  '
-\newcommand{\slashsep}{\hspace{3mm}/\hspace{3mm}}
+%----------------------------------------------------------------------------------------
+%	HYPERLINKS -- must stay last
+%----------------------------------------------------------------------------------------
+
+\usepackage[hidelinks]{hyperref} % Required for links but hide the default boxes around links

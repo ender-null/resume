@@ -8,35 +8,38 @@
 
 TEX    := tectonic
 IMAGE  := dxjoke/tectonic-docker:0.15.0-alpine-biber
-OUT_EN := alin_trandafir_cv_en.pdf
-OUT_ES := alin_trandafir_cv_es.pdf
-JUNK   := *.aux *.log *.out *.fls *.fdb_latexmk *.synctex.gz
 
-.PHONY: all en es docker watch clean
+# Both documents share the class and the contact/keyword data, so either one changing
+# must rebuild both PDFs. identity.tex was easy to miss here.
+DEPS   := developercv.cls identity.tex
+
+OUT_EN := alin_trandafir_resume.pdf
+OUT_ES := alin_trandafir_curriculum.pdf
+JUNK   := *.aux *.log *.out *.fls *.fdb_latexmk *.synctex.gz *.xdv
+
+.PHONY: all en es docker clean
 .DEFAULT_GOAL := all
 
 all: en es
 en: $(OUT_EN)
 es: $(OUT_ES)
 
-$(OUT_EN): resume.tex developercv.cls
-	$(TEX) resume.tex
+$(OUT_EN): resume.tex $(DEPS)
+	$(TEX) $<
 	mv resume.pdf $@
 
-$(OUT_ES): resume-spanish.tex developercv.cls
-	$(TEX) resume-spanish.tex
-	mv resume-spanish.pdf $@
+$(OUT_ES): curriculum.tex $(DEPS)
+	$(TEX) $<
+	mv curriculum.pdf $@
 
-## Same toolchain as CI, no local TeX needed
+## Same toolchain as CI, no local TeX needed. CI invokes this exact target, so the
+## docker invocation and the output filenames live in one place rather than being
+## kept in sync by hand between here and the workflow.
 docker:
 	docker run --rm --mount src=$(PWD),target=/usr/src/tex,type=bind $(IMAGE) \
-	  /bin/sh -c "tectonic resume.tex && tectonic resume-spanish.tex"
+	  /bin/sh -c "tectonic resume.tex && tectonic curriculum.tex"
 	mv resume.pdf $(OUT_EN)
-	mv resume-spanish.pdf $(OUT_ES)
-
-## Rebuild on save
-watch:
-	$(TEX) -X watch
+	mv curriculum.pdf $(OUT_ES)
 
 clean:
-	rm -f $(JUNK) $(OUT_EN) $(OUT_ES) resume.pdf resume-spanish.pdf
+	rm -f $(JUNK) $(OUT_EN) $(OUT_ES) resume.pdf curriculum.pdf

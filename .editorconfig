@@ -1,6 +1,6 @@
 # Both .tex files mixed tabs and 4-space indentation within the same construct
-# (e.g. \entry blocks and \baritem lines), and the divergence had been cloned into the
-# Spanish copy at identical line numbers. This keeps it from recurring.
+# (e.g. \entry blocks), and the divergence had been cloned into the Spanish copy at
+# identical line numbers. This keeps it from recurring.
 root = true
 
 [*]
