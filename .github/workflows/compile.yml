@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      # One job, one image pull, both documents. A build matrix would remove the
+      # One job, one image pull, all documents. A build matrix would remove the
       # duplicated YAML but still pull the image twice, and for a sub-second compile
       # the pull dominates the run.
       #
@@ -31,7 +31,7 @@ jobs:
       # filenames in the Makefile only. They used to be spelled out here as well --
       # in two separate jobs -- so renaming an output meant editing three copies.
       #
-      # The Makefile chains the two compiles with '&&', not ';'. The old workflow used
+      # The Makefile chains the compiles with '&&', not ';'. The old workflow used
       # ';' and so reported success even when a compile failed -- which is how a
       # reference to a 'biber-mwe.tex' that has never existed in this repo survived: it
       # errored on every single run, and every run was still green. There is no
@@ -50,6 +50,12 @@ jobs:
         with:
           name: alin_trandafir_curriculum
           path: alin_trandafir_curriculum.pdf
+
+      - name: Upload ETT CV
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: alin_trandafir_curriculum_ett
+          path: alin_trandafir_curriculum_ett.pdf
 
   # Build artifacts expire after 90 days and need a GitHub login to download, which is
   # useless for a document whose whole purpose is being handed to people without GitHub
@@ -83,4 +89,5 @@ jobs:
           files: |
             alin_trandafir_resume.pdf
             alin_trandafir_curriculum.pdf
+            alin_trandafir_curriculum_ett.pdf
           generate_release_notes: true

@@ -1,0 +1,89 @@
+% CV for temp agencies (ETT): warehouse, production, hospitality, retail and events.
+% Deliberately separate from resume.tex / curriculum.tex: it uses moderncv instead of
+% developercv.cls, and folds the whole software career into one generic entry so the
+% candidate does not read as overqualified for entry-level roles.
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+\moderncvstyle{classic} % classic, not banking: banking drops the photo
+\moderncvcolor{blue}
+
+% polyglossia, not babel: babel-spanish breaks moderncv's \phone (Missing \endcsname).
+\usepackage{polyglossia}
+\setmainlanguage{spanish}
+\usepackage[a4paper,hmargin=1.6cm,top=1.4cm,bottom=1.4cm]{geometry}
+
+% moderncv loads hyperref at \begin{document}, so metadata must wait for it.
+\AtBeginDocument{\hypersetup{
+	pdftitle={Alin Trandafir -- CV},
+	pdfauthor={Alin Trandafir},
+	pdfsubject={Almacén, logística, producción, hostelería, tienda y eventos},
+	pdfkeywords={mozo de almacén, preparación de pedidos, operario de producción,
+		camarero, reponedor, dependiente, montaje de eventos, Zaragoza},
+	pdflang={es-ES},
+}}
+
+% Name and phone come from identity.tex, shared with the other two CVs. The email is
+% spelled out because \cvemail is already an \href and moderncv's \email adds its own.
+\input{identity}
+
+\name{\cvfirstname}{\cvlastname}
+\title{Almacén · Producción · Hostelería}
+\address{Zaragoza}{}{}
+\phone[mobile]{\cvphone}
+\email{alin\_trandafir@icloud.com}
+\photo[70pt][0.4pt]{photo} % photo.jpg is used only by this CV
+
+\begin{document}
+
+\makecvtitle
+
+% Section order follows what an ETT recruiter screens for, in order: can this person
+% start, which shifts, which posts -- and only then background. Availability and target
+% posts therefore sit above experience instead of at the bottom.
+
+\section{Perfil}
+\cvitem{}{Persona \textbf{responsable, puntual y con ganas de trabajar}. Acostumbrado a trabajar en equipo, seguir procedimientos y aprender rápido cualquier tarea nueva. Facilidad con la tecnología: me adapto en pocos días a terminales, escáneres y programas de gestión.}
+
+\section{Puestos de interés}
+\cvitem{Almacén}{Mozo de almacén, preparación de pedidos, carga y descarga, inventario.}
+\cvitem{Producción}{Operario de producción, cadena de montaje, envasado y etiquetado.}
+\cvitem{Hostelería}{Camarero, ayudante de cocina, office.}
+\cvitem{Tienda}{Reponedor, dependiente, cajero.}
+\cvitem{Eventos}{Montaje y desmontaje, auxiliar de eventos.}
+
+\section{Disponibilidad}
+\cvitem{Incorporación}{Inmediata.}
+\cvitem{Horario}{Turnos de mañana, tarde y noche, y fines de semana.}
+\cvitem{Contrato}{Temporal, por días, por horas o jornada completa.}
+
+\section{Experiencia}
+% One generic entry on purpose: listing the software roles and employers makes an
+% entry-level application read as overqualified. The bullets keep only what transfers.
+\cventry{2017--Actualidad}{Empleado en el sector tecnológico}{Varias empresas}{Zaragoza}{}{%
+\begin{itemize}
+	\item Trabajo en equipo y coordinación con otros departamentos.
+	\item Cumplimiento de horarios, plazos y procedimientos de calidad.
+	\item Trato directo con clientes y pequeños comercios.
+	\item Uso diario de ordenador y programas de gestión.
+\end{itemize}}
+
+\cventry{Voluntariado}{Fundador y presidente}{Asociación Juvenil Brovrashgka}{Zaragoza}{}{%
+Asociación cultural sin ánimo de lucro.
+\begin{itemize}
+	\item Organización y montaje de eventos y talleres abiertos al público.
+	\item Coordinación de equipos de voluntarios.
+	\item Logística de material y control del presupuesto.
+\end{itemize}}
+
+\section{Formación}
+\cventry{2014--2016}{Técnico Superior en Desarrollo de Aplicaciones Multiplataforma}{CPIFP Los Enlaces}{Zaragoza}{}{}
+\cventry{2012--2014}{Técnico en Sistemas Microinformáticos y Redes}{CPIFP Los Enlaces}{Zaragoza}{}{Montaje y reparación de equipos, cableado e instalación de redes.}
+\cvitem{}{\textbf{Graduado en Educación Secundaria Obligatoria (ESO)}}
+
+\section{Idiomas}
+\cvitem{Español}{Nativo}
+\cvitem{Rumano}{Nativo}
+\cvitem{Inglés}{Nivel avanzado}
+
+\end{document}
