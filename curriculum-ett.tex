@@ -3,7 +3,7 @@
 % developercv.cls, and folds the whole software career into one generic entry so the
 % candidate does not read as overqualified for entry-level roles.
 
-\documentclass[11pt,a4paper,sans]{moderncv}
+\documentclass[10pt,a4paper,sans]{moderncv}
 
 \moderncvstyle{classic} % classic, not banking: banking drops the photo
 \moderncvcolor{blue}
@@ -11,7 +11,7 @@
 % polyglossia, not babel: babel-spanish breaks moderncv's \phone (Missing \endcsname).
 \usepackage{polyglossia}
 \setmainlanguage{spanish}
-\usepackage[a4paper,hmargin=1.6cm,top=1.4cm,bottom=1.4cm]{geometry}
+\usepackage[a4paper,hmargin=1.6cm,top=1.1cm,bottom=1.0cm]{geometry}
 
 % moderncv loads hyperref at \begin{document}, so metadata must wait for it.
 \AtBeginDocument{\hypersetup{
@@ -42,20 +42,27 @@
 % start, which shifts, which posts -- and only then background. Availability and target
 % posts therefore sit above experience instead of at the bottom.
 
+% Wording below mirrors the requirements that recur across ~350 Zaragoza ETT offers
+% checked on 2026-10-08: "incorporación inmediata", "turnos rotativos M/T/N",
+% "días sueltos", "PDA / radiofrecuencia", "programas de gestión (SGA/ERP/SAP)",
+% "ofimática". Only things the candidate actually has are claimed: no forklift,
+% PRL or food-handler certificate, no driving licence, no warehouse experience.
+
 \section{Perfil}
-\cvitem{}{Persona \textbf{responsable, puntual y con ganas de trabajar}. Acostumbrado a trabajar en equipo, seguir procedimientos y aprender rápido cualquier tarea nueva. Facilidad con la tecnología: me adapto en pocos días a terminales, escáneres y programas de gestión.}
+\cvitem{}{Persona \textbf{responsable, puntual, polivalente y con ganas de trabajar}. Acostumbrado a trabajar en equipo, seguir procedimientos y aprender rápido cualquier tarea nueva. Por mi formación en informática me adapto en pocos días a \textbf{PDA, radiofrecuencia y programas de gestión de almacén}. \textbf{Incorporación inmediata} y disponibilidad para \textbf{turnos rotativos}.}
 
 \section{Puestos de interés}
-\cvitem{Almacén}{Mozo de almacén, preparación de pedidos, carga y descarga, inventario.}
-\cvitem{Producción}{Operario de producción, cadena de montaje, envasado y etiquetado.}
-\cvitem{Hostelería}{Camarero, ayudante de cocina, office.}
-\cvitem{Tienda}{Reponedor, dependiente, cajero.}
-\cvitem{Eventos}{Montaje y desmontaje, auxiliar de eventos.}
+\cvitem{Almacén}{Mozo de almacén, preparación de pedidos (picking), carga y descarga, recepción de mercancía, inventario.}
+\cvitem{Producción}{Operario de producción, cadena de montaje, envasado, etiquetado, manipulado textil.}
+\cvitem{Tienda}{Reponedor, dependiente, promotor.}
+\cvitem{Oficina}{Recepcionista, auxiliar administrativo, atención al cliente, back office.}
+\cvitem{Hostelería}{Ayudante de cocina, office, camarero de eventos, montaje de eventos.}
 
 \section{Disponibilidad}
 \cvitem{Incorporación}{Inmediata.}
-\cvitem{Horario}{Turnos de mañana, tarde y noche, y fines de semana.}
-\cvitem{Contrato}{Temporal, por días, por horas o jornada completa.}
+\cvitem{Horario}{Turnos rotativos de mañana, tarde y noche; fines de semana; días sueltos.}
+\cvitem{Contrato}{Temporal, por días, por horas, media jornada o jornada completa.}
+\cvitem{Transporte}{Público y autobús de empresa (polígonos PLAZA, Malpica, Cogullada).}
 
 \section{Experiencia}
 % One generic entry on purpose: listing the software roles and employers makes an
@@ -64,8 +71,8 @@
 \begin{itemize}
 	\item Trabajo en equipo y coordinación con otros departamentos.
 	\item Cumplimiento de horarios, plazos y procedimientos de calidad.
-	\item Trato directo con clientes y pequeños comercios.
-	\item Uso diario de ordenador y programas de gestión.
+	\item Atención y trato directo con clientes y pequeños comercios.
+	\item Uso diario de ordenador, ofimática y programas de gestión.
 \end{itemize}}
 
 \cventry{Voluntariado}{Fundador y presidente}{Asociación Juvenil Brovrashgka}{Zaragoza}{}{%
@@ -81,9 +88,8 @@ Asociación cultural sin ánimo de lucro.
 \cventry{2012--2014}{Técnico en Sistemas Microinformáticos y Redes}{CPIFP Los Enlaces}{Zaragoza}{}{Montaje y reparación de equipos, cableado e instalación de redes.}
 \cvitem{}{\textbf{Graduado en Educación Secundaria Obligatoria (ESO)}}
 
-\section{Idiomas}
-\cvitem{Español}{Nativo}
-\cvitem{Rumano}{Nativo}
-\cvitem{Inglés}{Nivel avanzado}
+\section{Idiomas e informática}
+\cvitem{Idiomas}{Español y rumano nativos; inglés avanzado (C1).}
+\cvitem{Informática}{Nivel avanzado: ofimática, programas de gestión, montaje y reparación de equipos.}
 
 \end{document}
