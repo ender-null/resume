@@ -10,7 +10,6 @@ name: Compile
 on:
   push:
     branches: [main]
-    tags: ['v*']
   pull_request:
 
 permissions:
@@ -63,19 +62,19 @@ jobs:
 
   # Build artifacts expire after 90 days and need a GitHub login to download, which is
   # useless for a document whose whole purpose is being handed to people without GitHub
-  # accounts. Tagging publishes a permanent, login-free URL; in particular
-  # .../releases/latest/download/alin_trandafir_resume.pdf always resolves to the newest
-  # tagged CV, so it is a stable link to put on a profile.
+  # accounts. Every push to main publishes a release, numbered by the run, so
+  # .../releases/latest/download/alin_trandafir_resume.pdf always resolves to the CV on
+  # main -- a stable, login-free link to put on a profile, with no tag to remember.
   #
   # Unaffected by '*.pdf' in .gitignore: this uploads via the API rather than committing.
   #
   # This job downloads what `build` already produced instead of compiling a second
   # time. It previously repeated the checkout and the full docker build, so every
-  # tagged release pulled the image twice and typeset both documents twice -- and
+  # release pulled the image twice and typeset both documents twice -- and
   # nothing guaranteed the released PDFs were the ones the build job had tested.
   release:
     needs: build
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -92,6 +91,8 @@ jobs:
       - name: Publish release
         uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3.0.3
         with:
+          tag_name: v1.0.${{ github.run_number }}
+          target_commitish: ${{ github.sha }}
           files: |
             alin_trandafir_resume.pdf
             alin_trandafir_curriculum.pdf

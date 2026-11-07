@@ -31,8 +31,8 @@ make clean
 
 ## Releases
 
-Every push to `main` builds all three PDFs as workflow artifacts. Pushing a `v*` tag also
-publishes them to a GitHub Release, which gives a permanent link that needs no login:
+Every push to `main` builds all three PDFs and publishes them to a GitHub Release
+(`v1.0.<run number>`, no tagging by hand), which gives a permanent link that needs no login:
 
 ```
 https://github.com/ender-null/resume/releases/latest/download/alin_trandafir_resume.pdf
